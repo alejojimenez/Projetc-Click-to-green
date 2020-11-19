@@ -1,9 +1,13 @@
 import React from 'react';
-import './App.css';
+import './styles/StyleNavbar.css';
+import NavBarTop from "./components/NavBarTop"
 
 function App() {
   return (
-    <h1>Click To Green</h1>
+    <>
+      <NavBarTop/>
+      <h1>Click To Green</h1>
+    </>
   );
 }
 
