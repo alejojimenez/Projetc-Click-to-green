@@ -1,0 +1,35 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,300;0,500;0,700;0,900;1,100;1,300;1,500;1,700;1,900&display=swap");
+
+body {
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.nav-link.active {
+  color: #bebebe !important;
+  /* background-color: #522076 !important; */
+}
+
+.nav-link {
+  color: #ffffff !important;
+  /* background-color: #522076 !important; */
+}
+
+.navbar {
+  color: #522076 !important;
+  background-color: #522076 !important;
+}
+
+/* .Dropdown {
+  background: #53ac32;
+  color: #522076;
+  border: 2px solid #53ac32;
+  border-radius: 3px;
+  padding: 5px 10px;
+  text-transform: uppercase;
+} */
