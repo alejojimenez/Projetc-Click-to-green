@@ -1,22 +1,23 @@
 import React from "react";
-import { Col, Row, Card, Button, Container } from "react-bootstrap";
+import { Col, Row, Card, Button, Container, CardDeck } from "react-bootstrap";
 import parqueBicentenario from "../img/parque-bicentenario.jpg"
 
-const MetodosDePago = () => {
+const PayMethod = () => {
     return (
         <>
-            <Container fluid>
-                <Row className="d-inline text-center">
-                    <h2 className="colorPrincipal">PLANES DE PAGO</h2>
-                </Row>
-                <Row>
-                    <Col>
-                        <div className="w-25 h-50">
-                            <img src={parqueBicentenario} style={{ width: '36rem' }} alt="Parque Bicentenario" />
-                        </div>
-                    </Col>
-                    <Col>
-                        <Card className="fondoColorSecundario" style={{ width: '18rem' }}>
+            <Row className="d-inline text-center">
+            </Row>
+            <Row>
+                <Col md={5} lg={5}>
+                    <div className="containerImg">
+                        <h3 className="textImage">ELIGENOS PARA UN MEJOR FUTURO</h3>
+                        <img src={parqueBicentenario} alt="Parque Bicentenario" className=" imgCover" />
+                    </div>
+                </Col>
+                <Col sm={1} md={7} lg={7}>
+                    <h2 className="colorPrincipal text-center titlePago">PLANES DE PAGO</h2>
+                    <CardDeck className="align-middle CardDeck">
+                        <Card className="fondoColorSecundario" style={{ width: '14rem', height: '30%', marginTop: '4rem' }}>
                             <Card.Body>
                                 <Card.Title className="text-light">39.990 $ al mes</Card.Title>
                                 <Card.Text className="text-light">
@@ -29,9 +30,7 @@ const MetodosDePago = () => {
                                 <Button className="fondoColorPrincipal m-auto">Tu eliges</Button>
                             </Card.Body>
                         </Card>
-                    </Col>
-                    <Col>
-                        <Card className="fondoColorPrincipal" style={{ width: '18rem' }}>
+                        <Card className="fondoColorPrincipal" style={{ width: '14rem', height: '30%' }}>
                             <Card.Body>
                                 <Card.Title className="text-light">39.990 $ al mes</Card.Title>
                                 <Card.Text className="text-light">
@@ -44,9 +43,7 @@ const MetodosDePago = () => {
                                 <Button className="fondoColorSecundario m-auto">Tu eliges</Button>
                             </Card.Body>
                         </Card>
-                    </Col>
-                    <Col>
-                        <Card className="fondoColorSecundario" style={{ width: '18rem' }}>
+                        <Card className="fondoColorSecundario" style={{ width: '14rem', height: '30%', marginTop: '4rem' }}>
                             <Card.Body>
                                 <Card.Title className="text-light">39.990 $ al mes</Card.Title>
                                 <Card.Text className="text-light">
@@ -59,11 +56,11 @@ const MetodosDePago = () => {
                                 <Button className="fondoColorPrincipal m-auto">Tu eliges</Button>
                             </Card.Body>
                         </Card>
-                    </Col>
-                </Row>
-            </Container>
+                    </CardDeck>
+                </Col>
+            </Row>
         </>
     )
 }
 
-export default MetodosDePago;
+export default PayMethod;
