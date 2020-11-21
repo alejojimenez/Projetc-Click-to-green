@@ -35,3 +35,7 @@ code {
 .fondoColorSecundario {
   background-color: #53ac32 !important;
 }
+
+.borderLine {
+  border: 1px solid;
+}
