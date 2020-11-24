@@ -15,11 +15,12 @@ function App() {
     <>
       <BrowserRouter>
         <div>
+          <Home />
           <Switch>
-            <Route exact path="/" component={Home} />
+            {/* <Route exact path="/" component={Home} /> */}
             <Route exact path="/" component={PayMethod} />
             <Route exact path="/" component={Suggestions} />
-            <Route render={() => <h1>ERROR 404</h1>} />
+            {/* <Route render={() => <h1>ERROR 404</h1>} /> */}
           </Switch>
           <PayMethod />
           <Suggestions />
