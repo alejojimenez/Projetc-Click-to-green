@@ -8,6 +8,7 @@
 
 .StyleImgHome {
   height: 900px;
+  Opacity: 90%;
 }
 
 @media only screen and (min-width: 320px) and (max-width: 1024px) {
@@ -17,12 +18,13 @@
     background-repeat: no-repeat;
     background-size: cover;
     height: 500px;
+    margin-top: 65px;
   }
 
   .textHomeImage {
     font-weight: 400;
     margin-top: 0%;
-    text-align: center;
+    text-align: center center;
   }
 }
 
@@ -32,6 +34,7 @@
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
+    margin-top: 65px;
   }
 }
 
