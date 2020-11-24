@@ -1,5 +1,5 @@
 import React from "react";
-import { Col, Row, Card, Button, Container, Form } from "react-bootstrap";
+import { Col, Row, Button, Container, Form } from "react-bootstrap";
 
 const Suggestions = () => {
     return (
@@ -46,4 +46,4 @@ const Suggestions = () => {
     )
 }
 
-export default Suggestions
+export default Suggestions;
