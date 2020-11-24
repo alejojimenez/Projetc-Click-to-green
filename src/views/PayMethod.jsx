@@ -1,5 +1,5 @@
 import React from "react";
-import { Col, Row, Card, Button, Container, CardDeck } from "react-bootstrap";
+import { Col, Row, Card, Button, CardDeck } from "react-bootstrap";
 import parqueBicentenario from "../img/parque-bicentenario.jpg"
 
 const PayMethod = () => {
@@ -8,7 +8,7 @@ const PayMethod = () => {
             <Row className="d-inline text-center">
             </Row>
             <Row>
-                <Col md={5} lg={5}>
+                <Col sm={1} md={5} lg={5}>
                     <div className="containerImg">
                         <h3 className="textImage">ELIGENOS PARA UN MEJOR FUTURO</h3>
                         <img src={parqueBicentenario} alt="Parque Bicentenario" className=" imgCover" />
