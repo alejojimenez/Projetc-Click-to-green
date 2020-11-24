@@ -15,7 +15,7 @@ const Suggestions = () => {
                         <h5>Se libre, se Green!</h5>
                     </Col>
 
-                    <Col md='4'>
+                    <Col sm='1' md='4'>
                         <Form>
                             <Form.Row>
                                 <Form.Group as={Col} controlId="formGridName">

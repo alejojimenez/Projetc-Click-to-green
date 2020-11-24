@@ -4,7 +4,7 @@ import LogoColorWhite from "../img/LogoColorWhite.svg"
 
 const NavBarTop = () => {
     return (
-        <Navbar className="fondoColorPrincipal" expand="lg">
+        <Navbar className="fondoColorSecundario fixed-top" expand="lg">
             <Navbar.Brand href="#home"><img src={LogoColorWhite} height="40" alt="logo" /></Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
@@ -13,8 +13,8 @@ const NavBarTop = () => {
                     <Nav.Link className="mr-5" href="#planes-de-pago">Planes de pago</Nav.Link>
                     <Nav.Link className="mr-5" href="#sugerencias">Sugerencias</Nav.Link>
                 </Nav>
-                <Dropdown className="mr-sm-2">
-                    <Dropdown.Toggle className="fondoColorSecundario" id="dropdown-basic">
+                <Dropdown className="mr-sm-2 dropleft">
+                    <Dropdown.Toggle className="fondoColorPrincipal" id="dropdown-basic">
                         Login
                         </Dropdown.Toggle>
                     <Dropdown.Menu className="mr-2">

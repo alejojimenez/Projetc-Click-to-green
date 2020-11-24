@@ -12,10 +12,7 @@ function App() {
   return (
     <>
       <NavBarTop />
-      <Suggestions />
       <BrowserRouter>
-        <NavBarTop />
-        <PayMethod />
         <div>
           <Switch>
             <Route exact path="/" component={PayMethod} />
@@ -23,6 +20,7 @@ function App() {
                 <Route exact path="/Details-Planets/:name" component={DetailsPlanets} /> */}
             <Route render={() => <h1>ERROR 404</h1>} />
           </Switch>
+          <Suggestions />
         </div>
       </BrowserRouter>
     </>
