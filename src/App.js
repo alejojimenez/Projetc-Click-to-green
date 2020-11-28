@@ -9,6 +9,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from "./views/Home";
 import Suggestions from './views/Suggestions';
 import PayMethod from "./views/PayMethod";
+import WhoWeAre from "./views/WhoWeAre";
 
 function App() {
   return (
@@ -19,10 +20,12 @@ function App() {
           <Switch>
             {/* <Route exact path="/" component={Home} />  */}
             <Route exact path="/planes-de-pago" component={PayMethod} />
+            <Route exact path="/Quienes-somos" component={WhoWeAre} />
             <Route exact path="/sugerencias" component={Suggestions} />
             {/* <Route render={() => <h1>ERROR 404</h1>} />  */}
           </Switch>
           <PayMethod />
+          <WhoWeAre />
           <Suggestions />
         </div>
       </BrowserRouter>
