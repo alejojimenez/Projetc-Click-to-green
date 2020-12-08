@@ -3,22 +3,28 @@ import { Container, Row, Col } from 'react-bootstrap';
 import "../styles/StyleHome.css";
 
 // Secciones
-import NavBarTop from "../components/NavBarTop";
+// import NavBarTop from "../components/NavBarTop";
+import WhoWeAre from './WhoWeAre';
+import PayMethod from "./PayMethod";
+import Contact from "./Contact";
 
 const Home = () => {
 
     return (
         <>
-            <NavBarTop/>
-            <Container className = "StyleContainerHome" fluid>
+            {/* <NavBarTop/> */}
+            <Container className = "style-container-home" fluid>
                 <Row>
                     <Col>
-                        <div className = "StyleImgHome">
-                            <span className = "textHomeImage" >POR UN MEJOR FUTURO</span>
+                        <div className = "style-img-home">
+                            <span className = "text-home-image" >POR UN MEJOR FUTURO</span>
                         </div>
                     </Col>
                 </Row>
             </Container>
+            <WhoWeAre />
+            <PayMethod />
+            <Contact />
         </>
     )
 }
