@@ -28,13 +28,10 @@ const NavBarTop = () => {
                         </Dropdown.Toggle>
                     <Dropdown.Menu className="mr-2">
                         <Dropdown.Item className="mr-2" href="#/action-1">
-                            <Link>Action</Link>
+                            <Link>Login</Link>
                         </Dropdown.Item>
                         <Dropdown.Item className="mr-2" href="#/action-2">
-                            <Link>Another action</Link>
-                        </Dropdown.Item>
-                        <Dropdown.Item className="mr-2" href="#/action-3">
-                            <Link>Something else</Link>
+                            <Link>Register</Link>
                         </Dropdown.Item>
                     </Dropdown.Menu>
                 </Dropdown>

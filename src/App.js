@@ -1,14 +1,14 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from "react-router-dom"
-import "./styles/custom.scss";
-import './styles/StyleNavbar.css';
-import "./styles/StylesMP.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import injectContext from "./store/appContext";
+
 
 // SECCIONES 
 import Home from "./views/Home";
 import Suggestions from './views/Suggestions';
 import PayMethod from "./views/PayMethod";
+import Containers from "./views/Containers";
 
 function App() {
   return (
@@ -23,11 +23,13 @@ function App() {
             {/* <Route render={() => <h1>ERROR 404</h1>} />  */}
           </Switch>
           <PayMethod />
+          <Containers />
           <Suggestions />
+
         </div>
       </BrowserRouter>
     </>
   );
 }
 
-export default App;
+export default injectContext(App);

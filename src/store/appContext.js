@@ -19,8 +19,7 @@ const injectContext = PassedComponent => {
 			})
 		);
         useEffect(() => {
-			state.actions.getPeople("https://swapi.dev/api/people")
-			state.actions.getPlanet("https://swapi.dev/api/planets")
+			state.actions.getContainer("http://127.0.0.1:5000/api/container")
 			/**
 			 * EDIT THIS!
 			 * This function is the equivalent to "window.onLoad", it only runs once on the entire application lifetime
