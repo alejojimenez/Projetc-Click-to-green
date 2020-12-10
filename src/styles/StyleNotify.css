@@ -1,0 +1,33 @@
+.style-container-notify {
+    padding-right: 0px;
+    padding-left: 0px;
+    margin-bottom: -24px;
+}
+
+.style-img-notify {
+    height: 900px;
+    Opacity: 90%;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 1024px) {
+    .style-img-notify {
+        background-image: url("../img/isla-de-pascua.jpg");
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        padding-left: 0px;
+        padding-right: 0px;
+        height: 600px;
+        margin-top: 65px;
+    }
+}
+
+@media only screen and (min-width: 1025px) {
+    .style-img-notify {
+        background-image: url("../img/isla-de-pascua.jpg");
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        margin-top: 65px;
+    }
+}
