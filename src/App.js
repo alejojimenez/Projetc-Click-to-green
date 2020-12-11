@@ -1,10 +1,9 @@
 import React from 'react';
 import injectContext from './store/appContext';
 import { BrowserRouter, Switch, Route } from "react-router-dom"
-import "./styles/custom.scss";
-import './styles/StyleNavbar.css';
-import "./styles/StylesMP.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import injectContext from "./store/appContext";
+
 
 // SECCIONES 
 import Home from "./views/Home";
@@ -39,6 +38,7 @@ function App() {
               {/* <Route component={NotFound} /> 
             */}
           </Switch>
+
           <Home />
         </div>
       </BrowserRouter>
