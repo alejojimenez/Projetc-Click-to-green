@@ -1,27 +1,18 @@
 import React, { useState, useContext, useEffect } from "react";
 import { Context } from "../store/appContext";
-import { Col, Row, Button, Table, Container, Modal } from "react-bootstrap";
+import { Col, Row, Table, Container } from "react-bootstrap";
 
 import ModalNotifications from '../components/ModalNotifications';
 
 const Notifications = () => {
     const { store, actions } = useContext(Context);
-    console.log('prueba 1', store.notifications);
+    console.log('Entrando a Notificaciones', store.notifications);
     useEffect ( () => {
         actions.getNotifications()
     }, [])
  
-     const [isOpen, setIsOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
 
-    // const showModal = () => {
-    //     setIsOpen(true);
-    // };
-
-    // const hideModal = () => {
-    //     setIsOpen(false);
-    // };
-
- 
     return (
         <>
         <Container>
@@ -48,7 +39,7 @@ const Notifications = () => {
                                 </tr>
                             </thead>
                             <tbody className = "text-center">
-                                {console.log("pasando por aqui", store.notifications)}
+                                {console.log("Construyendo Tabla", store.notifications)}
                                 { store.notifications.map((item, index) => {
                                     return (
                                         <tr className = "colorSecundario" key={index}>
@@ -60,11 +51,7 @@ const Notifications = () => {
                                             <td>{item.notify}</td>
                                             <td>{}</td>                                            
                                             <td>
-                                                {/* <Button type="submit" className=" float-right bg-success" onClick ={ () => setIsOpen(true)}>
-                                                    Asignar
-                                                </Button> */}
                                                 <ModalNotifications 
-                                                    // show={ShowModal}
                                                     hideModal={() => setIsOpen(false)}
                                                 />                                                       
                                             </td>
