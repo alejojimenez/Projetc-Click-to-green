@@ -7,19 +7,24 @@ const getState = ({ getStore, getActions, setStore }) => {
             location: '',
             length: '',
             latitude: '',
-            errors: null
-            notify: {
-            status: "Pendiente",
-            notify: "Enviada"
-            // notificationDate: ""
-            },
-		},
+            errors: null,
+            notifications: [
+                {
+                    status: "",
+                    notify: "",
+                    notificationDate: ""
+                }
+            ]
+        },
+        ///////////////////////////////
+        // Fetch Send Notify - Alejo //
+        ///////////////////////////////
         actions: {
           onClickSendNotify: (evento) => {
                 evento.preventDefault();
                 const store = getStore();
                 console.log(store);
-                var options = {
+                let options = {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
@@ -37,6 +42,27 @@ const getState = ({ getStore, getActions, setStore }) => {
                 .then(data => console.log(data))
                 .catch((error) => console.log(error))
             },
+            //////////////////////////////////////
+            // Fetch List Notifications - Alejo //
+            //////////////////////////////////////
+	          getNotifications: async () =>{
+                console.log('---Flux Get Notifications---')
+                const config = {
+                    "method": "GET",
+                    "headers": {
+                        "Content-type": "application/json"
+                    },
+                }
+                fetch("http://127.0.0.1:5000/api/get_notification", config)
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log(data)
+                    setStore({notifications: data})
+                })
+                .catch((error) => console.log(error));
+              }
+            },
+
             handleChange: e => {
                 setStore({
                     [e.target.name]: e.target.value,
@@ -137,4 +163,5 @@ const getState = ({ getStore, getActions, setStore }) => {
             },
 		}
 	};
+
 export default getState;
