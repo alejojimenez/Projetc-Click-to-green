@@ -6,13 +6,23 @@ const getState = ({ getStore, getActions, setStore }) => {
                 notify: "Enviada"
                 // notificationDate: ""
             },
-		},
+            notifications: [
+                {
+                    status: "",
+                    notify: "",
+                    notificationDate: ""
+                }
+            ]
+        },
+        ///////////////////////////////
+        // Fetch Send Notify - Alejo //
+        ///////////////////////////////
         actions: {
             onClickSendNotify: (evento) => {
                 evento.preventDefault();
                 const store = getStore();
                 console.log(store);
-                var options = {
+                let options = {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
@@ -29,8 +39,27 @@ const getState = ({ getStore, getActions, setStore }) => {
                 .then(resp => resp.json())
                 .then(data => console.log(data))
                 .catch((error) => console.log(error))
+            },
+            //////////////////////////////////////
+            // Fetch List Notifications - Alejo //
+            //////////////////////////////////////
+	        getNotifications: async () =>{
+                console.log('---Flux Get Notifications---')
+                const config = {
+                    "method": "GET",
+                    "headers": {
+                        "Content-type": "application/json"
+                    },
+                }
+                fetch("http://127.0.0.1:5000/api/get_notification", config)
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log(data)
+                    setStore({notifications: data})
+                })
+                .catch((error) => console.log(error));
             }
-        }
+        },
 	}
 };
 export default getState;
