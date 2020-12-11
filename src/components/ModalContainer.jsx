@@ -4,7 +4,7 @@ import { Modal, Button, Col, Form } from 'react-bootstrap'
 
 const ModalContainer = (props) => {
     const { store, actions } = useContext(Context);
-    const { id, getId } = useState([]);
+    const { idContainer, getIdContainer } = useState([]);
     // console.log('prueba 1', store.container)
 
     return (
@@ -21,7 +21,7 @@ const ModalContainer = (props) => {
             </Modal.Header>
             <Modal.Body className="show-grid">
                 { }
-                <Form onSubmit={e => actions.addContainer(e)}>
+                <Form onSubmit={e => actions.updateContainer(e)}>
                     <Form.Row>
                         <Col>
                             <Form.Group as={Col} controlId="typeOfMaterial">

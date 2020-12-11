@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Context } from "../store/appContext"
-import { Col, Row, Button, Form } from "react-bootstrap";
+import { Col, Row, Button, Form, Table } from "react-bootstrap";
 import ModalContainer from '../components/ModalContainer'
 
 const Containers = () => {
@@ -77,79 +77,61 @@ const Containers = () => {
                 <div className="containers2">
                     <Row className='text-center py-5'>
                         <Col>
-                            <h6 className="colorPrincipal text-center titleListContainers"><Col>Lista de Contenedores</Col></h6>
+                            <h4 className="colorPrincipal text-center titleListContainers"><Col>LISTA DE CONTENEDORES</Col></h4>
                         </Col>
                     </Row>
-                    <Row className="line mb-3">
-                        <Col className='text-center colorPrincipal'>
-                            <h6>Tipo de material</h6>
-                        </Col>
-                        <Col className='text-center colorPrincipal'>
-                            <h6>Capacidad</h6>
-                        </Col>
-                        <Col className='text-center colorPrincipal'>
-                            <h6>Locación</h6>
-                        </Col>
-                        <Col className='text-center colorPrincipal'>
-                            <h6>Longitud</h6>
-                        </Col>
-                        <Col className='text-center colorPrincipal'>
-                            <h6>Latitud</h6>
-                        </Col>
-                        <Col className='text-center colorPrincipal'>
-                            <h6>Fecha</h6>
-                        </Col>
-                        <Col className='text-center colorPrincipal'>
-                        </Col>
+                    <Row className="mb-3">
+                        <Table className='text-center colorPrincipal' striped bordered hover size="sm">
+                            <thead className="text-center">
+                                <tr>
+                                    <th>Tipo de material</th>
+                                    <th>Capacidad</th>
+                                    <th>Locación</th>
+                                    <th>Longitud</th>
+                                    <th>Latitud</th>
+                                    <th>Fecha</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody className="text-center">
+                                {
+                                    store.container !== undefined ?
+                                        (
+                                            store.container.map((item, index) => {
+                                                return (
+                                                    <>
+                                                        <tr className="colorSecundario" key={index} data={item}>
+                                                            <td>{item.typeOfMaterial}</td>
+                                                            <td>{item.capacity}</td>
+                                                            <td>{item.location}</td>
+                                                            <td>{item.length}</td>
+                                                            <td>{item.latitude}</td>
+                                                            <td>{item.registerDate}</td>
+                                                            <td>
+                                                                <Button className="fondoColorSecundario mr-4" onClick={() => setModalShow(true)}>
+                                                                    Editar
+                                                                    </Button>
+                                                                <Button type="submit" className="bg-danger" onClick={() => {
+                                                                    actions.deleteContainer(index, item.containerId)
+                                                                }}>Eliminar</Button>
+                                                            </td>
+                                                        </tr>
+                                                        <ModalContainer
+                                                            show={modalShow}
+                                                            onHide={() => setModalShow(false)}
+                                                        />
+                                                    </>
+                                                )
+                                            })
+                                        )
+                                        :
+                                        (
+                                            <h1>Loading</h1>
+                                        )
+                                }
+                            </tbody>
+                        </Table>
                     </Row>
-                    {
-                        store.container !== undefined ?
-                            (
-                                store.container.map((item, index) => {
-                                    return (
-                                        <div key={index}>
-                                            <Row className="lineColor2">
-                                                <Col className='text-left colorPrincipal'>
-                                                    <h6>{item.typeOfMaterial}</h6>
-                                                </Col>
-                                                <Col className='text-left colorPrincipal'>
-                                                    <h6>{item.capacity}</h6>
-                                                </Col>
-                                                <Col className='text-left colorPrincipal'>
-                                                    <h6>{item.location}</h6>
-                                                </Col>
-                                                <Col className='text-left colorPrincipal'>
-                                                    <h6>{item.length}</h6>
-                                                </Col>
-                                                <Col className='text-left colorPrincipal'>
-                                                    <h6>{item.latitude}</h6>
-                                                </Col>
-                                                <Col className='text-left colorPrincipal'>
-                                                    <h6>{item.registerDate}</h6>
-                                                </Col>
-                                                <Col className='text-left colorPrincipal'>
-                                                    <Button type="submit" className=" float-right bg-danger" onClick={() => {
-                                                        actions.deleteContainer(index, item.containerId)
-                                                    }}>Eliminar</Button>
-                                                    <Button className="fondoColorSecundario float-right mr-2" onClick={() => setModalShow(true)}>
-                                                        Editar
-                                                        </Button>
-                                                    <ModalContainer
-                                                        show={modalShow}
-                                                        onHide={() => setModalShow(false)}
-                                                    />
-                                                    {/* <Button type="submit" className="fondoColorSecundario float-right mr-2" onClick={e => actions.updateContainer(e)}>Editar</Button> */}
-                                                </Col>
-                                            </Row>
-                                        </div>
-                                    )
-                                })
-                            )
-                            :
-                            (
-                                <h1>Loading</h1>
-                            )
-                    }
                 </div>
             </div>
         </>
