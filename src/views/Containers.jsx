@@ -1,12 +1,12 @@
 import React, { useContext } from "react";
 import { Context } from "../store/appContext"
 import { Col, Row, Button, Form } from "react-bootstrap";
-import ModalComponent from '../components/ModalComponent'
+import ModalContainer from '../components/ModalContainer'
 
 const Containers = () => {
     const { store, actions } = useContext(Context);
-    console.log('prueba 1', store.container)
     const [modalShow, setModalShow] = React.useState(false);
+    // console.log('prueba 1', store.container)
 
     return (
         <>
@@ -128,11 +128,13 @@ const Containers = () => {
                                                     <h6>{item.registerDate}</h6>
                                                 </Col>
                                                 <Col className='text-left colorPrincipal'>
-                                                    <Button type="submit" className=" float-right bg-danger" onClick={() => actions.deleteContainer(index)}>Eliminar</Button>
+                                                    <Button type="submit" className=" float-right bg-danger" onClick={() => {
+                                                        actions.deleteContainer(index, item.containerId)
+                                                    }}>Eliminar</Button>
                                                     <Button className="fondoColorSecundario float-right mr-2" onClick={() => setModalShow(true)}>
                                                         Editar
                                                         </Button>
-                                                    <ModalComponent
+                                                    <ModalContainer
                                                         show={modalShow}
                                                         onHide={() => setModalShow(false)}
                                                     />

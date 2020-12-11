@@ -7,7 +7,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             location: '',
             length: '',
             latitude: '',
-            errors: null
+            errors: null,
             notify: {
             status: "Pendiente",
             notify: "Enviada"
@@ -37,6 +37,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                 .then(data => console.log(data))
                 .catch((error) => console.log(error))
             },
+
             handleChange: e => {
                 setStore({
                     [e.target.name]: e.target.value,
@@ -68,12 +69,13 @@ const getState = ({ getStore, getActions, setStore }) => {
                     .catch((error) => console.log(error));
             },
 
-            updateContainer: (index, newContainer, id) => {
+            updateContainer: (index, newContainer) => {
                 index.preventDefault();
                 const store = getStore();
                 const { container } = getStore();
                 container.splice(index, 1, newContainer)
                 setStore(...container)
+                console.log("traera el id"+index)
 
                 fetch(`http://127.0.0.1:5000//api/container/update_container/<int:id>`, {
                     method: 'PUT',
@@ -96,33 +98,25 @@ const getState = ({ getStore, getActions, setStore }) => {
                     .catch((error) => console.log(error));
             },
 
-            deleteContainer: (index,id ) => {
+            deleteContainer: (index, id ) => {
                 // index.preventDefault();
-                const store = getStore();
+                // const store = getStore();
                 const { container } = getStore();
                 container.splice(index,1) 
                 setStore(...container)
+                console.log(index)
+                console.log(id)
 
-                fetch(`http://127.0.0.1:5000/api/container/delete_container/<int:id>`, {
-                    method: 'DELETE',
-                    body: JSON.stringify({
-                        ...store.container
-                        // "typeOfMaterial": store.typeOfMaterial,
-                        // "capacity": store.capacity,
-                        // "location": store.location,
-                        // "length": store.length,
-                        // "latitude": store.latitude
-                    }),
-                    headers: {
-                        'Content-Type': 'application/json'
+                fetch(`http://127.0.0.1:5000/api/container/delete_container/${id}`,
+                    {
+                        method: "DELETE",
+                        headers: {
+                            "Content-Type": "application/json"
+                        }
                     }
-                })  
-                    .then(resp => resp.json())
-                    .then(data => {
-                        getActions().getContainer("http://127.0.0.1:5000/api/container")
-                        console.log(data)
-                    })
-                    .catch((error) => console.log(error));
+                )
+                    .then(res => res.json())
+                    .then(data => console.log(data))
             },
 
             getContainer:  (url) => {

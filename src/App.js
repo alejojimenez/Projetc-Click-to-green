@@ -2,8 +2,6 @@ import React from 'react';
 import injectContext from './store/appContext';
 import { BrowserRouter, Switch, Route } from "react-router-dom"
 import 'bootstrap/dist/css/bootstrap.min.css';
-import injectContext from "./store/appContext";
-
 
 // SECCIONES 
 import Home from "./views/Home";
@@ -12,6 +10,7 @@ import NavBarTop from "./components/NavBarTop"
 // import PayMethod from "./views/PayMethod";
 // import WhoWeAre from "./views/WhoWeAre";
 import SendNotify from "./views/SendNotify";
+import Container from "./views/Containers"
 
 function App() {
   return (
@@ -21,6 +20,7 @@ function App() {
           <NavBarTop />
           <Switch>
               <Route exact path='/enviar-notificacion' render={() => <SendNotify />} />
+              <Route exact path='/container' render={() => <Container />} />
               {/* <Route exact path="/notificacion" component={Notify} /> */}
               {/* <Route exact path="/notificacion" component={Notify} /> */}
             {/* Nuevos Accessos

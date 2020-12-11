@@ -1,10 +1,11 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Context } from "../store/appContext"
 import { Modal, Button, Col, Form } from 'react-bootstrap'
 
-const ModalComponent = (props) => {
+const ModalContainer = (props) => {
     const { store, actions } = useContext(Context);
-    console.log('prueba 1', store.container)
+    const { id, getId } = useState([]);
+    // console.log('prueba 1', store.container)
 
     return (
         <Modal
@@ -19,6 +20,7 @@ const ModalComponent = (props) => {
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body className="show-grid">
+                { }
                 <Form onSubmit={e => actions.addContainer(e)}>
                     <Form.Row>
                         <Col>
@@ -64,4 +66,4 @@ const ModalComponent = (props) => {
     );
 }
 
-export default ModalComponent;
+export default ModalContainer;
