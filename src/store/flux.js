@@ -1,6 +1,7 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
         store: {
+
             container: [],
             typeOfMaterial: '',
             capacity: '',
@@ -14,13 +15,46 @@ const getState = ({ getStore, getActions, setStore }) => {
                     notify: "",
                     notificationDate: ""
                 }
-            ]
+            ],
+
+            user_signup:{
+                username : "",
+                email : "",
+                password : ""
+
+            }            
         },
         ///////////////////////////////
+
         // Fetch Send Notify - Alejo //
         ///////////////////////////////
         actions: {
-          onClickSendNotify: (evento) => {
+            onChangeUser: evento => {
+                const store = getStore();
+                const {user_signup} = store;
+                user_signup[evento.target.name] = evento.target.value
+                setStore({user_signup})
+                console.log(evento.target.name)
+                console.log(store.user_signup)
+            },
+            onSubmitSignup: evento => {
+                evento.preventDefault()
+                const store = getStore()
+                let options = {
+                    method: "POST",
+                    headers: {
+                        "Content-Type":"application/json"
+                    },
+                    body: JSON.stringify(store.user_signup)
+                }
+                fetch("http://localhost:5000/users/register", options)
+                .then(resp => resp.json())
+                .then(data => console.log(data))
+                .catch(error => console.log(error))
+
+            },
+
+            onClickSendNotify: (evento) => {
                 evento.preventDefault();
                 const store = getStore();
                 console.log(store);
@@ -45,7 +79,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             //////////////////////////////////////
             // Fetch List Notifications - Alejo //
             //////////////////////////////////////
-	          getNotifications: async () =>{
+	        getNotifications: async () =>{
                 console.log('---Flux Get Notifications---')
                 const config = {
                     "method": "GET",
@@ -60,7 +94,6 @@ const getState = ({ getStore, getActions, setStore }) => {
                     setStore({notifications: data})
                 })
                 .catch((error) => console.log(error));
-              }
             },
 
             handleChange: e => {
@@ -160,8 +193,10 @@ const getState = ({ getStore, getActions, setStore }) => {
                     })
                     .catch((error) => console.log(error));
             },
+
             },
-		}
+            
+        }
 	};
 
 export default getState;
