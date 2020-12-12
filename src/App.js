@@ -1,18 +1,18 @@
-import React from 'react';
-import injectContext from './store/appContext';
-import { BrowserRouter, Switch, Route } from "react-router-dom"
-import 'bootstrap/dist/css/bootstrap.min.css';
+import React from "react";
+import injectContext from "./store/appContext";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
 
-
-// SECCIONES 
+// SECCIONES
 import Home from "./views/Home";
-import NavBarTop from "./components/NavBarTop"
+import NavBarTop from "./components/NavBarTop";
 // import Suggestions from './views/Suggestions'
 // import PayMethod from "./views/PayMethod";
 // import WhoWeAre from "./views/WhoWeAre";
 import SendNotify from "./views/SendNotify";
 import Notifications from "./views/Notifications";
 import Signup from "./views/Signup";
+import Login from "./views/Login";
 
 function App() {
   return (
@@ -21,12 +21,20 @@ function App() {
         <div>
           <NavBarTop />
           <Switch>
-              <Route exact path='/enviar-notificacion' render={() => <SendNotify />} />
-              <Route exact path='/notificaciones' render={() => <Notifications />}/>
-              <Route exact path='/registro' component={Signup} />
-
-              {/* <Route exact path="/notificacion" component={Notify} /> */}
-              {/* <Route exact path="/notificacion" component={Notify} /> */}
+            <Route
+              exact
+              path="/enviar-notificacion"
+              render={() => <SendNotify />}
+            />
+            <Route
+              exact
+              path="/notificaciones"
+              render={() => <Notifications />}
+            />
+            <Route exact path="/registro" component={Signup} />
+            <Route exact path="/login" component={Login} />
+            {/* <Route exact path="/notificacion" component={Notify} /> */}
+            {/* <Route exact path="/notificacion" component={Notify} /> */}
             {/* Nuevos Accessos
               <Route exact path="/login" component={Login} />          
               <Route exact path="/registro" component={Register} />
