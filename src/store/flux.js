@@ -20,7 +20,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         // Fetch Send Notify - Alejo //
         ///////////////////////////////
         actions: {
-          onClickSendNotify: (evento) => {
+            onClickSendNotify: (evento) => {
                 evento.preventDefault();
                 const store = getStore();
                 console.log(store);
@@ -45,7 +45,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             //////////////////////////////////////
             // Fetch List Notifications - Alejo //
             //////////////////////////////////////
-	          getNotifications: async () =>{
+	        getNotifications: async () =>{
                 console.log('---Flux Get Notifications---')
                 const config = {
                     "method": "GET",
@@ -60,7 +60,6 @@ const getState = ({ getStore, getActions, setStore }) => {
                     setStore({notifications: data})
                 })
                 .catch((error) => console.log(error));
-              }
             },
 
             handleChange: e => {

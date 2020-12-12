@@ -1,13 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom"
 import { Navbar, Nav, Dropdown } from "react-bootstrap";
-import LogoColorWhite from "../img/LogoColorWhite.svg"
+import LogoColorPurple from "../img/LogoColorPurple.svg"
 
 const NavBarTop = () => {
     return (
         <Navbar className="fondoColorSecundario fixed-top" expand="lg">
             <Navbar.Brand href="#home">
-                <Link to='/'><img src={LogoColorWhite} height="40" alt="logo" /></Link>
+                <Link to='/'><img src={LogoColorPurple} height="40" alt="logo" /></Link>
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
