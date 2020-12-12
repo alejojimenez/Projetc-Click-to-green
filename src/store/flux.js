@@ -14,12 +14,16 @@ const getState = ({ getStore, getActions, setStore }) => {
                     notify: "",
                     notificationDate: ""
                 }
-            ]
+            ],
+            currentUser: null
         },
         ///////////////////////////////
         // Fetch Send Notify - Alejo //
         ///////////////////////////////
         actions: {
+            //////////////////////////////////////
+            // Fetch Send Notifications - Alejo //
+            //////////////////////////////////////
             onClickSendNotify: (evento) => {
                 evento.preventDefault();
                 const store = getStore();

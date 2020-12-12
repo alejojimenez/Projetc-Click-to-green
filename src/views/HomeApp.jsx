@@ -1,15 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import Context from '../store/appContext';
 import { Container, Row, Col } from 'react-bootstrap';
 import "../styles/StyleHomeApp.css";
 
 // Secciones
-import NavBarSide from "../components/NavBarSide";
 
 const HomeApp = () => {
 
     return (
+        // const { store } = useContext(Context);
+
         <>
-            <NavBarSide/>
             <Container className = "style-container-home-app" fluid>
                 <Row>
                     <Col>

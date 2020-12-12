@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext } from "react";
+import { Context } from './store/appContext';
 import injectContext from './store/appContext';
 import { BrowserRouter, Switch, Route } from "react-router-dom"
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -17,6 +18,8 @@ import Notifications from "./views/Notifications";
 
 
 function App() {
+  const { store } = useContext(Context);
+
   return (
     <>
       <BrowserRouter>
@@ -39,7 +42,19 @@ function App() {
               {/* <Route component={NotFound} /> 
               */}
           </Switch>
-          <Home />
+          {
+            store.currentUser !== null ?
+              console.log(store.currentUser)
+              (
+                <>
+                  <HomeApp />
+                </>
+              )
+              :
+                <>
+                  <Home />
+                </>
+          }
       </BrowserRouter>
     </>
   );
