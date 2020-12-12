@@ -1,7 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import { Context } from "../store/appContext";
 import { Col, Row, Table, Container } from "react-bootstrap";
-
 import ModalNotifications from '../components/ModalNotifications';
 
 const Notifications = () => {
@@ -23,7 +22,7 @@ const Notifications = () => {
                             <h3 className="colorPrincipal text-center titlePago"><Col>NOTIFICACIONES</Col></h3>
                         </Col>
                     </Row>
-                    <Row className="line mb-3">
+                    <Row className="mb-3">
                         <br />
                         <Table className='text-center colorPrincipal' striped bordered hover size="sm">
                             <thead className = "text-center">

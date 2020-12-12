@@ -16,7 +16,6 @@ const getState = ({ getStore, getActions, setStore }) => {
                     notificationDate: ""
                 }
             ],
-
             currentUser: null,
 
             user_signup:{
@@ -30,11 +29,10 @@ const getState = ({ getStore, getActions, setStore }) => {
                 password : ""
             }
         },
-        ///////////////////////////////
-
-        // Fetch Send Notify - Alejo //
-        ///////////////////////////////
         actions: {
+            //////////////////////////////////////
+            // Fetch Send Notifications - Alejo //
+            //////////////////////////////////////
             onChangeUser: evento => {
                 const store = getStore();
                 const {user_signup} = store;
@@ -57,7 +55,6 @@ const getState = ({ getStore, getActions, setStore }) => {
                 .then(resp => resp.json())
                 .then(data => console.log(data))
                 .catch(error => console.log(error))
-
             },
             onChangeUserLogin: evento => {
                 const store = getStore();
@@ -66,7 +63,6 @@ const getState = ({ getStore, getActions, setStore }) => {
                 setStore({user_login})
                 console.log(evento.target.name)
                 console.log(store.user_login)
-                
             },
             onSubmitLogin: evento => {
                 evento.preventDefault()

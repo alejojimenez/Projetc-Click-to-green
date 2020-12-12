@@ -3,7 +3,6 @@ import { Container, Row, Col } from 'react-bootstrap';
 import "../styles/StyleHome.css";
 
 // Secciones
-// import NavBarTop from "../components/NavBarTop";
 import WhoWeAre from './WhoWeAre';
 import PayMethod from "./PayMethod";
 import Contact from "./Contact";
@@ -12,7 +11,6 @@ const Home = () => {
 
     return (
         <>
-            {/* <NavBarTop/> */}
             <Container className = "style-container-home" fluid>
                 <Row>
                     <Col>
