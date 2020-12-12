@@ -1,6 +1,7 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
         store: {
+
             container: [],
             typeOfMaterial: '',
             capacity: '',
@@ -15,15 +16,71 @@ const getState = ({ getStore, getActions, setStore }) => {
                     notificationDate: ""
                 }
             ],
-            currentUser: null
+            currentUser: null,
+
+            user_signup:{
+                username : "",
+                email : "",
+                password : ""
+
+            },
+            user_login:{
+                email : "",
+                password : ""
+            }
         },
-        ///////////////////////////////
-        // Fetch Send Notify - Alejo //
-        ///////////////////////////////
         actions: {
             //////////////////////////////////////
             // Fetch Send Notifications - Alejo //
             //////////////////////////////////////
+            onChangeUser: evento => {
+                const store = getStore();
+                const {user_signup} = store;
+                user_signup[evento.target.name] = evento.target.value
+                setStore({user_signup})
+                console.log(evento.target.name)
+                console.log(store.user_signup)
+            },
+            onSubmitSignup: evento => {
+                evento.preventDefault()
+                const store = getStore()
+                let options = {
+                    method: "POST",
+                    headers: {
+                        "Content-Type":"application/json"
+                    },
+                    body: JSON.stringify(store.user_signup)
+                }
+                fetch("http://localhost:5000/users/register", options)
+                .then(resp => resp.json())
+                .then(data => console.log(data))
+                .catch(error => console.log(error))
+            },
+            onChangeUserLogin: evento => {
+                const store = getStore();
+                const {user_login} = store;
+                user_login[evento.target.name] = evento.target.value
+                setStore({user_login})
+                console.log(evento.target.name)
+                console.log(store.user_login)
+            },
+            onSubmitLogin: evento => {
+                evento.preventDefault()
+                const store = getStore()
+                let options = {
+                    method: "POST",
+                    headers: {
+                        "Content-Type":"application/json"
+                    },
+                    body: JSON.stringify(store.user_login)
+                }
+                fetch("http://localhost:5000/users/login", options)
+                .then(resp => resp.json())
+                .then(data => console.log(data))
+                .catch(error => console.log(error))
+                store.currentUser = store.data
+
+            },
             onClickSendNotify: (evento) => {
                 evento.preventDefault();
                 const store = getStore();
@@ -163,8 +220,10 @@ const getState = ({ getStore, getActions, setStore }) => {
                     })
                     .catch((error) => console.log(error));
             },
+
             },
-		}
+            
+        }
 	};
 
 export default getState;

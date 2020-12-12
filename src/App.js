@@ -15,6 +15,8 @@ import HomeApp from "./views/HomeApp";
 import SendNotify from "./views/SendNotify";
 import Containers from "./views/Containers";
 import Notifications from "./views/Notifications";
+import Signup from "./views/Signup";
+import Login from "./views/Login";
 
 
 function App() {
@@ -30,6 +32,23 @@ function App() {
               <Route exact path="/contenedores" component={Containers} />
               <Route exact path="/notificaciones" component={Notifications} />
               {/* Nuevos Accessos
+
+            <Route
+              exact
+              path="/enviar-notificacion"
+              render={() => <SendNotify />}
+            />
+            <Route
+              exact
+              path="/notificaciones"
+              render={() => <Notifications />}
+            />
+            <Route exact path="/registro" component={Signup} />
+            <Route exact path="/login" component={Login} />
+            {/* <Route exact path="/notificacion" component={Notify} /> */}
+            {/* <Route exact path="/notificacion" component={Notify} /> */}
+            {/* Nuevos Accessos
+
               <Route exact path="/login" component={Login} />          
               <Route exact path="/registro" component={Register} />
               */}

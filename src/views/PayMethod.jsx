@@ -66,7 +66,7 @@ const PayMethod = () => {
                     </Row>
                 </Col>
             </Row>
-        </Container>            
+        </Container>           
         </>
     )
 }
