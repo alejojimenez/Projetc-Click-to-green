@@ -17,6 +17,8 @@ const getState = ({ getStore, getActions, setStore }) => {
                 }
             ],
 
+            currentUser: null,
+
             user_signup:{
                 username : "",
                 email : "",
@@ -64,6 +66,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                 setStore({user_login})
                 console.log(evento.target.name)
                 console.log(store.user_login)
+                store.currentUser = "prueba"
             },
             onSubmitLogin: evento => {
                 evento.preventDefault()
