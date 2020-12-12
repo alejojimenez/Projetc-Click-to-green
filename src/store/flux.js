@@ -34,9 +34,6 @@ const getState = ({ getStore, getActions, setStore }) => {
             }
         },
         actions: {
-            //////////////////////////////////////
-            // Fetch Send Notifications - Alejo //
-            //////////////////////////////////////
             onChangeUser: evento => {
                 const store = getStore();
                 const {user_signup} = store;
@@ -83,8 +80,10 @@ const getState = ({ getStore, getActions, setStore }) => {
                 .then(data => console.log(data))
                 .catch(error => console.log(error))
                 store.currentUser = store.data
-
             },
+            //////////////////////////////////////
+            // Fetch Send Notifications - Alejo //
+            //////////////////////////////////////
             onClickSendNotify: (evento) => {
                 evento.preventDefault();
                 const store = getStore();
@@ -92,16 +91,15 @@ const getState = ({ getStore, getActions, setStore }) => {
                 let options = {
                     method: "POST",
                     headers: {
-                        "Content-Type": "application/json",
-                        "Access-Control-Allow-Origin": "http://127.0.0.1:5000/api/create_notification",
-                        "Access-Control-Allow-Methods": "POST",
-                        "Access-Control-Allow-Headers": "Content-Type, Authorization"
+                        "Content-type":"application/json"
                     },
-                    body: JSON.stringify({
-                        "status": store.notify.status,
-                        "notify": store.notify.notify
-                    })
+                    body: JSON.stringify(store.notifications)
+                    //     {
+                    //     "status": store.notifications.status,
+                    //     "notify": store.notifications.notify
+                    // })
                 }
+                
                 fetch("http://127.0.0.1:5000/api/create_notification", options)
                 .then(resp => resp.json())
                 .then(data => console.log(data))
