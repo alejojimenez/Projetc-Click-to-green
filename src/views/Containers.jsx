@@ -1,11 +1,15 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Context } from "../store/appContext"
 import { Col, Row, Button, Form, Table } from "react-bootstrap";
 import ModalContainer from '../components/ModalContainer'
 
 const Containers = () => {
     const { store, actions } = useContext(Context);
-    const [modalShow, setModalShow] = React.useState(false);
+    const [modalShow, setModalShow] = useState(false);
+    const handleClick = (index) => {
+        setModalShow(true)
+        actions.editContainer(index)
+    }
     // console.log('prueba 1', store.container)
 
     return (
@@ -108,7 +112,7 @@ const Containers = () => {
                                                             <td>{item.latitude}</td>
                                                             <td>{item.registerDate}</td>
                                                             <td>
-                                                                <Button className="fondoColorSecundario mr-4" onClick={() => setModalShow(true)}>
+                                                                <Button className="fondoColorSecundario mr-4" onClick={() => handleClick(index)}>
                                                                     Editar
                                                                     </Button>
                                                                 <Button type="submit" className="bg-danger" onClick={() => {
