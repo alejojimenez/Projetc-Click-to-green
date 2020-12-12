@@ -12,19 +12,19 @@ const NavBarSide = () => {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="m-auto">
-                    <Nav.Link className="mr-3 h5">
+                    <Nav.Link className="mr-5 h5">
                         <Link to='/empresa'>Empresa</Link>
                     </Nav.Link>
-                    <Nav.Link className="mr-3 h5">
+                    <Nav.Link className="mr-5 h5">
                         <Link to='/usuarios'>Usuarios</Link>
                     </Nav.Link>
-                    <Nav.Link className="mr-3 h5">
+                    <Nav.Link className="mr-5 h5">
                         <Link to='/contenedores'>Contenedores</Link>
                     </Nav.Link>
-                    <Nav.Link className="mr-3 h5">
+                    <Nav.Link className="mr-5 h5">
                         <Link to='/notificaciones'>Notificaciones</Link>
                     </Nav.Link>
-                    <Nav.Link className="mr-3 h5">
+                    <Nav.Link className="mr-5 h5">
                         <Link to='/'>Salir</Link>
                     </Nav.Link>
                 </Nav>
