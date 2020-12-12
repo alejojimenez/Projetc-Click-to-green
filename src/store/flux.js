@@ -17,6 +17,8 @@ const getState = ({ getStore, getActions, setStore }) => {
                 }
             ],
 
+            currentUser: null,
+
             user_signup:{
                 username : "",
                 email : "",
@@ -64,6 +66,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                 setStore({user_login})
                 console.log(evento.target.name)
                 console.log(store.user_login)
+                
             },
             onSubmitLogin: evento => {
                 evento.preventDefault()
@@ -79,6 +82,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                 .then(resp => resp.json())
                 .then(data => console.log(data))
                 .catch(error => console.log(error))
+                store.currentUser = store.data
 
             },
             onClickSendNotify: (evento) => {
