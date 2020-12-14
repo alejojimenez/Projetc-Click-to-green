@@ -16,6 +16,11 @@ const getState = ({ getStore, getActions, setStore }) => {
                     notificationDate: ""
                 }
             ],
+            notify:{
+                status: "Pendiente",
+                notify: "Enviada",
+            },
+
             currentUser: null,
 
             user_signup:{
@@ -83,20 +88,19 @@ const getState = ({ getStore, getActions, setStore }) => {
             onClickSendNotify: (evento) => {
                 evento.preventDefault();
                 const store = getStore();
-                console.log(store);
-                let options = {
-                    method: "POST",
+                console.log("Click para enviar", store.notify);
+                const config = {
+                    method: 'POST',
                     headers: {
                         "Content-type":"application/json"
                     },
-                    body: JSON.stringify(store.notifications)
-                    //     {
-                    //     "status": store.notifications.status,
-                    //     "notify": store.notifications.notify
-                    // })
+                    body: JSON.stringify(store.notify),
+                    // "body": JSON.stringify({
+                    //     "status": "Pendiente",
+                    //     "notify": "Enviada"
+                    // }),
                 }
-                
-                fetch("http://127.0.0.1:5000/api/create_notification", options)
+                fetch("http://127.0.0.1:5000/api/create_notification", config)
                 .then(resp => resp.json())
                 .then(data => console.log(data))
                 .catch((error) => console.log(error))
