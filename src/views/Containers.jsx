@@ -44,32 +44,32 @@ const Containers = () => {
                         <Form.Row>
                             <Col>
                                 <Form.Group as={Col} controlId="typeOfMaterial">
-                                    <Form.Control type="text" placeholder="Tipo de material" className="inputForm" id="typeOfMaterial" name="typeOfMaterial"
-                                        value={store.typeOfMaterial} onChange={actions.handleChange} />
+                                    <Form.Control type="text" className="inputForm" id="typeOfMaterial" name="typeOfMaterial"
+                                        placeholder={store.typeOfMaterial} onChange={actions.handleChange} />
                                 </Form.Group>
                             </Col>
                             <Col>
                                 <Form.Group as={Col} controlId="capacity">
-                                    <Form.Control type="text" placeholder="Capacidad" className="inputForm" id="capacity" name="capacity"
-                                        value={store.capacity} onChange={actions.handleChange} />
+                                    <Form.Control type="text" className="inputForm" id="capacity" name="capacity"
+                                        placeholder={store.capacity} onChange={actions.handleChange} />
                                 </Form.Group>
                             </Col>
                             <Col>
                                 <Form.Group as={Col} controlId="location">
-                                    <Form.Control type="text" placeholder="Locación" className="inputForm" id="location" name="location"
-                                        value={store.location} onChange={actions.handleChange} />
+                                    <Form.Control type="text" className="inputForm" id="location" name="location"
+                                        placeholder={store.location} onChange={actions.handleChange} />
                                 </Form.Group>
                             </Col>
                             <Col>
                                 <Form.Group as={Col} controlId="length">
-                                    <Form.Control type="text" placeholder="Longitud" className="inputForm" id="length" name="length"
-                                        value={store.length} onChange={actions.handleChange} />
+                                    <Form.Control type="text" className="inputForm" id="length" name="length"
+                                        placeholder={store.length} onChange={actions.handleChange} />
                                 </Form.Group>
                             </Col>
                             <Col>
                                 <Form.Group as={Col} controlId="latitude">
-                                    <Form.Control type="text" placeholder="Latitud" className="inputForm" id="latitude" name="latitude"
-                                        value={store.latitude} onChange={actions.handleChange} />
+                                    <Form.Control type="text" className="inputForm" id="latitude" name="latitude"
+                                        placeholder={store.latitude} onChange={actions.handleChange} />
                                 </Form.Group>
                             </Col>
                             <Col>
