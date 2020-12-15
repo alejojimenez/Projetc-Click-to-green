@@ -8,13 +8,7 @@ const SendNotify = () => {
 
     const timeOut = setTimeout(() => {
         window.location = 'http://localhost:3000';
-    }, 5000);
-    
-    // function myRedirect() {
-    //     setTimeout(function () {
-    //         window.location = 'http://localhost:3000';
-    //     }, 1000);
-    // }
+    }, 60000);
     
     return (
         <>
@@ -26,9 +20,10 @@ const SendNotify = () => {
                     </Button>
                     {console.log("Componente Despues del Click", store.currentNotify)}
                     {store.currentNotify !== ""
-                        ? <h3 className="text-send-notify align-items-center justify-content-center" timeOut>{store.currentNotify} ¡Gracias!</h3>
+                        ? <h3 className="text-send-notify align-items-center justify-content-center">{store.currentNotify} ¡Gracias! </h3>
                         : ""
                     }
+                    {timeOut}
                 </div>
             </div>
         </>
