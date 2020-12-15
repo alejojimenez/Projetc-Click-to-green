@@ -37,7 +37,7 @@ const ModalContainer = (props) => {
             </Modal.Header>
             <Modal.Body className="show-grid">
                 <>
-                    <Form onSubmit={e => actions.updateContainer(e, container)}>
+                    <Form onSubmit={e => { actions.updateContainer(e, container); props.onHide() }}>
                         <Form.Row>
                             <Col>
                                 <Form.Group as={Col} controlId="typeOfMaterial">
@@ -70,9 +70,7 @@ const ModalContainer = (props) => {
                                 </Form.Group>
                             </Col>
                             <Col>
-                                <Button type="submit" className="fondoColorSecundario float-right" onClick={() => {
-                                    actions.updateContainer()
-                                }}>Actualizar</Button>
+                                <Button type="submit" className="fondoColorSecundario float-right" >Actualizar</Button>
                             </Col>
                         </Form.Row>
                     </Form>
