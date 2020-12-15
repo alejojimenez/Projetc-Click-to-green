@@ -10,18 +10,25 @@ const getState = ({ getStore, getActions, setStore }) => {
             length: '',
             latitude: '',
             errors: null,
-        //     notify: {
-        //     status: "Pendiente",
-        //     notify: "Enviada"
-        //     // notificationDate: ""
-        //     notifications: [
-        //         {
-        //             status: "",
-        //             notify: "",
-        //             notificationDate: ""
-        //         }
-        //     ],
-        //     currentUser: null,
+
+            notifications: [
+                {
+                    status: "",
+                    notify: "",
+                    notificationDate: ""
+                }
+            ],
+            notify:{
+                status: "Pendiente",
+                notify: "Enviada",
+            },
+            currentNotify: "",
+            currentUser: null,
+
+            user_signup:{
+                username : "",
+                email : "",
+                password : ""
 
         //     user_signup:{
         //         username : "",
@@ -87,23 +94,37 @@ const getState = ({ getStore, getActions, setStore }) => {
             onClickSendNotify: (evento) => {
                 evento.preventDefault();
                 const store = getStore();
-                console.log(store);
-                let options = {
-                    method: "POST",
+                console.log("Click para enviar", store.notify);
+                const config = {
+                    method: 'POST',
                     headers: {
                         "Content-type":"application/json"
                     },
-                    body: JSON.stringify(store.notifications)
-                    //     {
-                    //     "status": store.notifications.status,
-                    //     "notify": store.notifications.notify
-                    // })
+                    body: JSON.stringify(store.notify),
+                    // "body": JSON.stringify({
+                    //     "status": "Pendiente",
+                    //     "notify": "Enviada"
+                    // }),
                 }
-                
-                fetch("http://127.0.0.1:5000/api/create_notification", options)
+                fetch("http://127.0.0.1:5000/api/create_notification", config)
                 .then(resp => resp.json())
                 .then(data => console.log(data))
                 .catch((error) => console.log(error))
+                const sendNotify = "Enviada"
+                setStore({...sendNotify})
+                store.currentNotify = "Enviada"
+                console.log("En el Flux", store.currentNotify)
+                
+                // console.log("sendNotify", sendNotify)
+                // return (
+                //     <>
+                //     {console.log("Despues del Click", store.currentNotify)};
+                //     {store.currentNotify === "Enviada"
+                //         ? <h3 className="text-send-notify align-items-center justify-content-center">{store.currentNotify} ¡Gracias!</h3>
+                //         : ""
+                //     }
+                //     </>
+                // )
             },
             //////////////////////////////////////
             // Fetch List Notifications - Alejo //
