@@ -12,12 +12,10 @@ import HomeApp from "./views/HomeApp";
 // import Suggestions from './views/Suggestions'
 // import PayMethod from "./views/PayMethod";
 // import WhoWeAre from "./views/WhoWeAre";
-import SendNotify from "./views/SendNotify";
 import Containers from "./views/Containers";
 import Notifications from "./views/Notifications";
 import Signup from "./views/Signup";
 import Login from "./views/Login";
-
 
 function App() {
   const { store } = useContext(Context);
@@ -27,7 +25,7 @@ function App() {
       <BrowserRouter>
           <NavBarTop />
           <Switch>
-              <Route exact path='/enviar-notificacion' render={() => <SendNotify />} />
+              {/* <Route exact path='/enviar-notificacion' render={() => <SendNotify />} /> */}
               <Route exact path="/login" component={Login} />          
               <Route exact path="/registro" component={Signup} />
               <Route exact path="/contenedores" component={Containers} />
