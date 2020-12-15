@@ -10,28 +10,28 @@ const getState = ({ getStore, getActions, setStore }) => {
             length: '',
             latitude: '',
             errors: null,
-            notify: {
-            status: "Pendiente",
-            notify: "Enviada"
-            // notificationDate: ""
-            notifications: [
-                {
-                    status: "",
-                    notify: "",
-                    notificationDate: ""
-                }
-            ],
-            currentUser: null,
+        //     notify: {
+        //     status: "Pendiente",
+        //     notify: "Enviada"
+        //     // notificationDate: ""
+        //     notifications: [
+        //         {
+        //             status: "",
+        //             notify: "",
+        //             notificationDate: ""
+        //         }
+        //     ],
+        //     currentUser: null,
 
-            user_signup:{
-                username : "",
-                email : "",
-                password : ""
-            },
-            user_login:{
-                email : "",
-                password : ""
-            }
+        //     user_signup:{
+        //         username : "",
+        //         email : "",
+        //         password : ""
+        //     },
+        //     user_login:{
+        //         email : "",
+        //         password : ""
+        //     }
         },
         actions: {
             onChangeUser: evento => {
