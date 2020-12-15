@@ -20,7 +20,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                 status: "Pendiente",
                 notify: "Enviada",
             },
-
+            currentNotify: "",
             currentUser: null,
 
             user_signup:{
@@ -104,6 +104,21 @@ const getState = ({ getStore, getActions, setStore }) => {
                 .then(resp => resp.json())
                 .then(data => console.log(data))
                 .catch((error) => console.log(error))
+                const sendNotify = "Enviada"
+                setStore({...sendNotify})
+                store.currentNotify = "Enviada"
+                console.log("En el Flux", store.currentNotify)
+                
+                // console.log("sendNotify", sendNotify)
+                // return (
+                //     <>
+                //     {console.log("Despues del Click", store.currentNotify)};
+                //     {store.currentNotify === "Enviada"
+                //         ? <h3 className="text-send-notify align-items-center justify-content-center">{store.currentNotify} ¡Gracias!</h3>
+                //         : ""
+                //     }
+                //     </>
+                // )
             },
             //////////////////////////////////////
             // Fetch List Notifications - Alejo //
