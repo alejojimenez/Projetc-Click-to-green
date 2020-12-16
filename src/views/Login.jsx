@@ -1,17 +1,26 @@
 import React, { useContext } from "react";
-import {
-  Container,
-  Col,
-  Row,
-  Button,
-  Form,
-} from "react-bootstrap";
+import { Container, Col, Row, Button, Form } from "react-bootstrap";
 import parqueBicentenario from "../img/parque-bicentenario.jpg";
 import "../styles/StylePayMethods.css";
 import { Context } from "../store/appContext";
+import { useDispatch, useSelector } from "react-redux";
+import { ingresoUsuarioAccion } from "../store/userSign";
+import { withRouter } from "react-router-dom";
 
-const Login = () => {
-  const { store, actions } = useContext(Context);
+const Login = (props) => {
+  const dispatch = useDispatch();
+
+  const loading = useSelector((store) => store.usuario.loading);
+  const activo = useSelector((store) => store.usuario.activo);
+  console.log(activo);
+
+  React.useEffect(() => {
+    // console.log(activo)
+    if (activo) {
+      props.history.push("/");
+    }
+  }, [activo]);
+
   return (
     <>
       <Container className="style-container-pay-methods" fluid>
@@ -21,35 +30,17 @@ const Login = () => {
               <h2 className="colorPrincipal text-center">BIENVENIDO</h2>
             </Row>
             <br />
-            <Form onSubmit={(evento) => actions.onSubmitLogin(evento)}>
-              <Row className="justify-content-center">
-                <Col sm={1} md={7} lg={7}>
-                  <input
-                    type="text"
-                    className="form-control mb-4"
-                    placeholder="Correo"
-                    name="email"
-                    onChange={(evento) => actions.onChangeUserLogin(evento)}
-                    value={store.user_login.email}
-                  />
-                </Col>
-                <Col sm={1} md={7} lg={7}>
-                  <input
-                    type="password"
-                    className="form-control mb-4"
-                    placeholder="Contraseña"
-                    name="password"
-                    onChange={(evento) => actions.onChangeUserLogin(evento)}
-                    value={store.user_login.password}
-                  />
-                </Col>
-                <Col sm={1} md={7} lg={7}>
-                  <Button type="submit" variant="success">
-                    Iniciar sesión
-                  </Button>
-                </Col>
-              </Row>
-            </Form>
+            <Col>
+              <h3>Ingreso con Google</h3>
+              <hr />
+              <button
+                className="btn btn-dark"
+                onClick={() => dispatch(ingresoUsuarioAccion())}
+                disabled={loading}
+              >
+                Acceder
+              </button>
+            </Col>
           </Col>
           <Col sm={"1"} md={"6"} lg={"6"}>
             <img
@@ -67,4 +58,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default withRouter(Login);
