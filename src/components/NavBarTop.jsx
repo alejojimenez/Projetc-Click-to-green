@@ -5,8 +5,8 @@ import { Navbar, Nav, Dropdown } from "react-bootstrap";
 import LogoColorPurple from "../img/LogoColorPurple.svg"
 
 //Secciones
-import Home from '../views/Home';
-import HomeApp from '../views/HomeApp';
+// import Home from '../views/Home';
+// import HomeApp from '../views/HomeApp';
 
 const NavBarTop = () => {
     const { store } = useContext(Context);
@@ -22,27 +22,27 @@ const NavBarTop = () => {
                     store.currentUser !== null ?
                         (
                             <>
-                            <Nav className="m-auto">
-                                <Nav.Link className="mr-5 h5">
-                                    <Link to='/empresa'>Empresa</Link>
-                                </Nav.Link>
-                                <Nav.Link className="mr-5 h5">
-                                    <Link to='/usuarios'>Usuarios</Link>
-                                </Nav.Link>
-                                <Nav.Link className="mr-5 h5">
-                                    <Link to='/contenedores'>Contenedores</Link>
-                                </Nav.Link>
-                                <Nav.Link className="mr-5 h5">
-                                    <Link to='/notificaciones'>Notificaciones</Link>
-                                </Nav.Link>
-                                <Nav.Link className="mr-5 h5">
-                                    <Link to='/'>Salir</Link>
-                                </Nav.Link>
-                            </Nav>
+                                <Nav className="m-auto">
+                                    <Nav.Link className="mr-5 h5">
+                                        <Link to='/empresa'>Empresa</Link>
+                                    </Nav.Link>
+                                    <Nav.Link className="mr-5 h5">
+                                        <Link to='/usuarios'>Usuarios</Link>
+                                    </Nav.Link>
+                                    <Nav.Link className="mr-5 h5">
+                                        <Link to='/contenedores'>Contenedores</Link>
+                                    </Nav.Link>
+                                    <Nav.Link className="mr-5 h5">
+                                        <Link to='/notificaciones'>Notificaciones</Link>
+                                    </Nav.Link>
+                                    <Nav.Link className="mr-5 h5">
+                                        <Link to='/'>Salir</Link>
+                                    </Nav.Link>
+                                </Nav>
                             </>
                         )
-                            :
-                            <>
+                        :
+                        <>
                             <Nav className="m-auto">
                                 <Nav.Link className="mr-5 h5">
                                     <Link to='/quienes-somos'>Quienes Somos</Link>
@@ -67,9 +67,9 @@ const NavBarTop = () => {
                                     </Dropdown.Item>
                                 </Dropdown.Menu>
                             </Dropdown>
-                            </>
+                        </>
                 }
-                </Navbar.Collapse>
+            </Navbar.Collapse>
         </Navbar>
     )
 };

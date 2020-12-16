@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
-import { Context } from "../store/appContext"
+import { Context } from "../store/appContext";
 import { Col, Row, Button, Form, Table } from "react-bootstrap";
-import ModalContainer from '../components/ModalContainer'
+import ModalContainer from '../components/ModalContainer';
 
 const Containers = () => {
     const { store, actions } = useContext(Context);
@@ -45,31 +45,31 @@ const Containers = () => {
                             <Col>
                                 <Form.Group as={Col} controlId="typeOfMaterial">
                                     <Form.Control type="text" placeholder="Tipo de material" className="inputForm" id="typeOfMaterial" name="typeOfMaterial"
-                                        value={store.typeOfMaterial} onChange={actions.handleChange} />
+                                        value={store.typeOfMaterial} onChange={actions && actions.handleChange} />
                                 </Form.Group>
                             </Col>
                             <Col>
                                 <Form.Group as={Col} controlId="capacity">
                                     <Form.Control type="text" placeholder="Capacidad" className="inputForm" id="capacity" name="capacity"
-                                        value={store.capacity} onChange={actions.handleChange} />
+                                        value={store.capacity} onChange={actions && actions.handleChange} />
                                 </Form.Group>
                             </Col>
                             <Col>
                                 <Form.Group as={Col} controlId="location">
                                     <Form.Control type="text" placeholder="Locación" className="inputForm" id="location" name="location"
-                                        value={store.location} onChange={actions.handleChange} />
+                                        value={store.location} onChange={actions && actions.handleChange} />
                                 </Form.Group>
                             </Col>
                             <Col>
                                 <Form.Group as={Col} controlId="length">
                                     <Form.Control type="text" placeholder="Longitud" className="inputForm" id="length" name="length"
-                                        value={store.length} onChange={actions.handleChange} />
+                                        value={store.length} onChange={actions && actions.handleChange} />
                                 </Form.Group>
                             </Col>
                             <Col>
                                 <Form.Group as={Col} controlId="latitude">
                                     <Form.Control type="text" placeholder="Latitud" className="inputForm" id="latitude" name="latitude"
-                                        value={store.latitude} onChange={actions.handleChange} />
+                                        value={store.latitude} onChange={actions && actions.handleChange} />
                                 </Form.Group>
                             </Col>
                             <Col>

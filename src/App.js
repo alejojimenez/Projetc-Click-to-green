@@ -26,7 +26,7 @@ function App() {
           <NavBarTop />
           <Switch>
               {/* <Route exact path='/enviar-notificacion' render={() => <SendNotify />} /> */}
-              <Route exact path="/login" component={Login} />          
+              <Route exact path="/login" component={Login} />
               <Route exact path="/registro" component={Signup} />
               <Route exact path="/contenedores" component={Containers} />
               <Route exact path="/notificaciones" component={Notifications} />
