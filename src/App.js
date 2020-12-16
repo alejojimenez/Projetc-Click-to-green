@@ -26,7 +26,6 @@ function App() {
   const { store } = useContext(Context);
   const [firebaseUser, setFirebaseUser] = React.useState(false);
 
-
   React.useEffect(() => {
     const fetchUser = () => {
       auth.onAuthStateChanged((user) => {

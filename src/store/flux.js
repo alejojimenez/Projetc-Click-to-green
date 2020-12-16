@@ -1,5 +1,5 @@
 const getState = ({ getStore, getActions, setStore }) => {
-	return {
+    return {
         store: {
 
             container: [],
@@ -18,34 +18,35 @@ const getState = ({ getStore, getActions, setStore }) => {
                     notificationDate: ""
                 }
             ],
-            notify:{
+            notify: {
                 status: "Pendiente",
                 notify: "Enviada",
             },
             currentNotify: "",
             currentUser: null,
 
-            user_signup:{
-                username : "",
-                email : "",
-                password : ""
+            user_signup: {
+                username: "",
+                email: "",
+                password: ""
 
-        //     user_signup:{
-        //         username : "",
-        //         email : "",
-        //         password : ""
-        //     },
-        //     user_login:{
-        //         email : "",
-        //         password : ""
-        //     }
+                //     user_signup:{
+                //         username : "",
+                //         email : "",
+                //         password : ""
+                //     },
+                //     user_login:{
+                //         email : "",
+                //         password : ""
+                //     }
+            },
         },
         actions: {
             onChangeUser: evento => {
                 const store = getStore();
-                const {user_signup} = store;
+                const { user_signup } = store;
                 user_signup[evento.target.name] = evento.target.value
-                setStore({user_signup})
+                setStore({ user_signup })
                 console.log(evento.target.name)
                 console.log(store.user_signup)
             },
@@ -55,20 +56,20 @@ const getState = ({ getStore, getActions, setStore }) => {
                 let options = {
                     method: "POST",
                     headers: {
-                        "Content-Type":"application/json"
+                        "Content-Type": "application/json"
                     },
                     body: JSON.stringify(store.user_signup)
                 }
                 fetch("http://localhost:5000/users/register", options)
-                .then(resp => resp.json())
-                .then(data => console.log(data))
-                .catch(error => console.log(error))
+                    .then(resp => resp.json())
+                    .then(data => console.log(data))
+                    .catch(error => console.log(error))
             },
             onChangeUserLogin: evento => {
                 const store = getStore();
-                const {user_login} = store;
+                const { user_login } = store;
                 user_login[evento.target.name] = evento.target.value
-                setStore({user_login})
+                setStore({ user_login })
                 console.log(evento.target.name)
                 console.log(store.user_login)
             },
@@ -78,14 +79,14 @@ const getState = ({ getStore, getActions, setStore }) => {
                 let options = {
                     method: "POST",
                     headers: {
-                        "Content-Type":"application/json"
+                        "Content-Type": "application/json"
                     },
                     body: JSON.stringify(store.user_login)
                 }
                 fetch("http://localhost:5000/users/login", options)
-                .then(resp => resp.json())
-                .then(data => console.log(data))
-                .catch(error => console.log(error))
+                    .then(resp => resp.json())
+                    .then(data => console.log(data))
+                    .catch(error => console.log(error))
                 store.currentUser = store.data
             },
             //////////////////////////////////////
@@ -98,7 +99,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                 const config = {
                     method: 'POST',
                     headers: {
-                        "Content-type":"application/json"
+                        "Content-type": "application/json"
                     },
                     body: JSON.stringify(store.notify),
                     // "body": JSON.stringify({
@@ -107,14 +108,14 @@ const getState = ({ getStore, getActions, setStore }) => {
                     // }),
                 }
                 fetch("http://127.0.0.1:5000/api/create_notification", config)
-                .then(resp => resp.json())
-                .then(data => console.log(data))
-                .catch((error) => console.log(error))
+                    .then(resp => resp.json())
+                    .then(data => console.log(data))
+                    .catch((error) => console.log(error))
                 const sendNotify = "Enviada"
-                setStore({...sendNotify})
+                setStore({ ...sendNotify })
                 store.currentNotify = "Enviada"
                 console.log("En el Flux", store.currentNotify)
-                
+            
                 // console.log("sendNotify", sendNotify)
                 // return (
                 //     <>
@@ -129,7 +130,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             //////////////////////////////////////
             // Fetch List Notifications - Alejo //
             //////////////////////////////////////
-	        getNotifications: async () =>{
+            getNotifications: async () => {
                 console.log('---Flux Get Notifications---')
                 const config = {
                     "method": "GET",
@@ -141,9 +142,9 @@ const getState = ({ getStore, getActions, setStore }) => {
                     .then(response => response.json())
                     .then(data => {
                         console.log(data)
-                    setStore({notifications: data})
-                })
-                .catch((error) => console.log(error));
+                        setStore({ notifications: data })
+                    })
+                    .catch((error) => console.log(error));
             },
 
             handleChange: e => {
@@ -168,7 +169,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                     headers: {
                         'Content-Type': 'application/json'
                     }
-                })  
+                })
                     .then(resp => resp.json())
                     .then(data => {
                         getActions().getContainer("http://127.0.0.1:5000/api/container")
@@ -180,7 +181,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             editContainer: (index) => {
                 // index.preventDefault();
                 const { container } = getStore();
-                setStore({editContainer: container[index]})
+                setStore({ editContainer: container[index] })
                 console.log(container[index])
 
                 // fetch(`http://127.0.0.1:5000/api/container/edit_container/${id}`,
@@ -218,7 +219,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                     headers: {
                         'Content-Type': 'application/json'
                     }
-                })  
+                })
                     .then(resp => resp.json())
                     .then(data => {
                         // getActions().getContainer("http://127.0.0.1:5000/api/container")
@@ -227,11 +228,11 @@ const getState = ({ getStore, getActions, setStore }) => {
                     .catch((error) => console.log(error));
             },
 
-            deleteContainer: (index, id ) => {
+            deleteContainer: (index, id) => {
                 // index.preventDefault();
                 // const store = getStore();
                 const { container } = getStore();
-                container.splice(index,1) 
+                container.splice(index, 1)
                 setStore(...container)
                 console.log(index)
                 console.log(id)
@@ -248,7 +249,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                     .then(data => console.log(data))
             },
 
-            getContainer:  (url) => {
+            getContainer: (url) => {
                 fetch(url)
                     .then(response => response.json())
                     .then(data => {
@@ -258,10 +259,10 @@ const getState = ({ getStore, getActions, setStore }) => {
                     .catch((error) => console.log(error));
             },
 
-            },
+        },
+        
+    };
+};
 
-        }
-    }
-}
+export default getState;
 
-export default getState
