@@ -20,8 +20,8 @@ const injectContext = PassedComponent => {
 		);
         useEffect(() => {
 			state.actions.getContainer("http://127.0.0.1:5000/api/container")
-			// state.actions.getNotifications("http://127.0.0.1:5000/api/get_notification");
-			/**
+			// state.actions.getNotifications("http://127.0.0.1:5000/api/get_notification");   
+       /**
 			 * EDIT THIS!
 			 * This function is the equivalent to "window.onLoad", it only runs once on the entire application lifetime
 			 * you should do your ajax requests or fetch api requests here. Do not use setState() to save data in the
