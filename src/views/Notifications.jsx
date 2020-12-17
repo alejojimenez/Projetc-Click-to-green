@@ -8,15 +8,15 @@ const Notifications = () => {
     console.log('Entrando a Notificaciones', store.notifications);
     useEffect(() => {
         actions.getNotifications()
-    })
+    }, []);
 
-    const [, setIsOpen] = useState(false);
+    const [setIsOpen] = useState(false);
 
 
     return (
         <>
             <Container>
-                <div className="containers-notificatios">
+                <div >
                     <div className="notifications">
                         <Row className='text-center py-5'>
                             <Col>
