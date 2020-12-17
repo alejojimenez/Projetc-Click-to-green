@@ -7,8 +7,8 @@ const SendNotify = () => {
     const { store, actions } = useContext(Context);
 
     const timeOut = setTimeout(() => {
-        window.location = 'http://localhost:3000';
-    }, 60000);
+        window.location = 'http://192.168.1.125:3000/home';
+    }, 25000);
     
     return (
         <>

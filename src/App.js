@@ -17,6 +17,7 @@ import WhoWeAre from "./views/WhoWeAre";
 import Contact from "./views/Contact";
 import Containers from "./views/Containers";
 import Notifications from "./views/Notifications";
+import SendNotify from "./views/SendNotify";
 //import Signup from "./views/Signup";
 import Login from "./views/Login"
 
@@ -25,6 +26,7 @@ import Login from "./views/Login"
 function App() {
   // const { store } = useContext(Context);
   const [firebaseUser, setFirebaseUser] = useState(false);
+
 
   React.useEffect(() => {
     const fetchUser = () => {
@@ -65,6 +67,7 @@ function App() {
           <Route exact path="/quienes-somos" component={WhoWeAre} />
           <Route exact path="/planes-de-pago" component={PayMethod} />
           <Route exact path="/contactanos" component={Contact} />
+          <Route exact path="/enviar-notificacion" component={SendNotify} />
         </Switch>
       </div>
     </Router>
