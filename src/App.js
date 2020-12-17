@@ -1,5 +1,5 @@
-import React, { useContext } from "react";
-import { Context } from './store/appContext';
+import React, { useState } from "react";
+// import { Context } from './store/appContext';
 import injectContext from './store/appContext';
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom"
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -23,8 +23,8 @@ import Login from "./views/Login"
 
 
 function App() {
-  const { store } = useContext(Context);
-  const [firebaseUser, setFirebaseUser] = React.useState(false);
+  // const { store } = useContext(Context);
+  const [firebaseUser, setFirebaseUser] = useState(false);
 
   React.useEffect(() => {
     const fetchUser = () => {
@@ -59,9 +59,9 @@ function App() {
         <NavBarTop />
         <Switch>
           <Route component={Login} path="/login"/>
-          <Route path="/home" component={Home} exact></Route>
-          <RutaPrivada path="/contenedores" component={Containers}></RutaPrivada>
-          <RutaPrivada path="/notificaciones" component={Notifications}></RutaPrivada>
+          <Route path="/home" component={Home} exact/>
+          <Route path="/contenedores" component={Containers}/>
+          <Route path="/notificaciones" component={Notifications}/>
           <Route exact path="/quienes-somos" component={WhoWeAre} />
           <Route exact path="/planes-de-pago" component={PayMethod} />
           <Route exact path="/contactanos" component={Contact} />

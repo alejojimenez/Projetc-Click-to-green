@@ -8,9 +8,9 @@ const Notifications = () => {
     console.log('Entrando a Notificaciones', store.notifications);
     useEffect(() => {
         actions.getNotifications()
-    })
+    }, [])
 
-    const [, setIsOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
 
     return (
         <>

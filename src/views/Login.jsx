@@ -1,8 +1,8 @@
-import React, { useContext } from "react";
-import { Container, Col, Row, Button, Form } from "react-bootstrap";
+import React, { useEffect } from "react";
+import { Container, Col, Row } from "react-bootstrap";
 import parqueBicentenario from "../img/parque-bicentenario.jpg";
 import "../styles/StylePayMethods.css";
-import { Context } from "../store/appContext";
+// import { Context } from "../store/appContext";
 import { useDispatch, useSelector } from "react-redux";
 import { ingresoUsuarioAccion } from "../store/userSign";
 import { withRouter } from "react-router-dom";
@@ -14,12 +14,12 @@ const Login = (props) => {
   const activo = useSelector((store) => store.usuario.activo);
   console.log(activo);
 
-  React.useEffect(() => {
+  useEffect(() => {
     // console.log(activo)
     if (activo) {
       props.history.push("/");
     }
-  }, [activo]);
+  }, []);
 
   return (
     <>

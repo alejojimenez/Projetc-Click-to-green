@@ -3,6 +3,7 @@ import { Context } from "../store/appContext"
 import { Modal, Button, Col, Form } from 'react-bootstrap'
 
 const ModalContainer = (props) => {
+    console.log(props)
     const { store, actions } = useContext(Context);
     const [container, setContainer] = useState({
         typeOfMaterial: '',
@@ -11,7 +12,7 @@ const ModalContainer = (props) => {
         length: '',
         latitude: '',
     })
-    const handleChange = e => {
+    const handleChange = (e) => {
         e.preventDefault()
         setContainer({
             ...container,
@@ -37,34 +38,34 @@ const ModalContainer = (props) => {
             </Modal.Header>
             <Modal.Body className="show-grid">
                 <>
-                    <Form onSubmit={e => { actions.updateContainer(e, container); props.onHide() }}>
+                    <Form onSubmit={(e) => { actions.updateContainer(e, container); props.onHide() }}>
                         <Form.Row>
                             <Col>
-                                <Form.Group as={Col} controlId="typeOfMaterial">
+                                <Form.Group as={Col}>
                                     <Form.Control type="text" className="inputForm" id="typeOfMaterial" name="typeOfMaterial"
                                         placeholder={store.editContainer.typeOfMaterial} onChange={(e) => handleChange(e)} />
                                 </Form.Group>
                             </Col>
                             <Col>
-                                <Form.Group as={Col} controlId="capacity">
+                                <Form.Group as={Col}>
                                     <Form.Control type="text" className="inputForm" id="capacity" name="capacity"
                                         placeholder={store.editContainer.capacity} onChange={(e) => handleChange(e)} />
                                 </Form.Group>
                             </Col>
                             <Col>
-                                <Form.Group as={Col} controlId="location">
+                                <Form.Group as={Col}>
                                     <Form.Control type="text" className="inputForm" id="location" name="location"
                                         placeholder={store.editContainer.location} onChange={(e) => handleChange(e)} />
                                 </Form.Group>
                             </Col>
                             <Col>
-                                <Form.Group as={Col} controlId="length">
+                                <Form.Group as={Col}>
                                     <Form.Control type="text" className="inputForm" id="length" name="length"
                                         placeholder={store.editContainer.length} onChange={(e) => handleChange(e)} />
                                 </Form.Group>
                             </Col>
                             <Col>
-                                <Form.Group as={Col} controlId="latitude">
+                                <Form.Group as={Col}>
                                     <Form.Control type="text" className="inputForm" id="latitude" name="latitude"
                                         placeholder={store.editContainer.latitude} onChange={(e) => handleChange(e)} />
                                 </Form.Group>
