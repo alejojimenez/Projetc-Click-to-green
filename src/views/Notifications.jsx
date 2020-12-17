@@ -12,6 +12,7 @@ const Notifications = () => {
 
     const [, setIsOpen] = useState(false);
 
+
     return (
         <>
             <Container>

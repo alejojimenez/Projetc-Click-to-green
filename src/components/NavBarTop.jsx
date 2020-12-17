@@ -5,7 +5,6 @@ import {cerrarSesionAccion} from '../store/userSign'
 import { Navbar, Nav } from "react-bootstrap";
 import LogoColorPurple from "../img/LogoColorPurple.svg"
 
-
 //Secciones
 // import Home from '../views/Home';
 // import HomeApp from '../views/HomeApp';
@@ -22,6 +21,7 @@ const NavBarTop = (props) => {
 
 
     return (
+
 
                     activo ? (
                         <>
@@ -42,8 +42,9 @@ const NavBarTop = (props) => {
 
                             </Nav>
                             </Navbar.Collapse>
-                            <NavLink className="btn btn-dark mr-2" to="/home" exact>Inicio</NavLink>
-                            <button className="btn btn-dark mr-2" onClick={() => cerrarSesion()}>
+
+                            <NavLink className="btn btn-outline-secondary fondoColorPrincipal colorFondoLetra mr-2 " to="/home" exact>Inicio</NavLink>
+                            <button className="btn btn-outline-secondary fondoColorPrincipal colorFondoLetra mr-2 " onClick={() => cerrarSesion()}>
                                 Cerrar Sesión
                             </button>
                         </Navbar>
@@ -55,7 +56,9 @@ const NavBarTop = (props) => {
                             <Link to='/home'><img src={LogoColorPurple} height="40" alt="logo" /></Link>
                         </Navbar.Brand>
                         <Navbar.Toggle aria-controls="basic-navbar-nav" />
+
                             <Navbar.Collapse id="basic-navbar-nav">                            
+
                             <Nav className="m-auto">
                                 <Nav.Link className="mr-5 h5">
                                     <Link to='/quienes-somos'>Quienes Somos</Link>
@@ -69,10 +72,13 @@ const NavBarTop = (props) => {
                             </Nav>
 
                             </Navbar.Collapse>
-                            <NavLink className="btn btn-dark mr-2" to="/login" exact>Login</NavLink>
+                            <NavLink className="btn btn-outline-secondary fondoColorPrincipal colorFondoLetra mr-2 btn-md" to="/login" exact>Login</NavLink>
                         </Navbar>
                         </>
                     )
+                        
+                
+
     )
 }
 
