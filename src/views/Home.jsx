@@ -20,9 +20,6 @@ const Home = () => {
                     </Col>
                 </Row>
             </Container>
-            <WhoWeAre />
-            <PayMethod />
-            <Contact />
         </>
     )
 }
