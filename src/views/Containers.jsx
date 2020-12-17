@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { Context } from "../store/appContext";
-import { Col, Row, Button, Form, Table } from "react-bootstrap";
+import { Col, Row, Button, Form, Table, Modal } from "react-bootstrap";
 import ModalContainer from '../components/ModalContainer';
 
 const Containers = () => {
@@ -9,12 +9,16 @@ const Containers = () => {
     const handleClick = (index) => {
         setModalShow(true)
         actions.editContainer(index)
-    }
+    };
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
     // console.log('prueba 1', store.container)
 
     return (
         <>
-            <div className="containersAll">
+            <div>
                 <div className="containers">
                     <Row className='text-center py-5'>
                         <Col>
@@ -40,36 +44,36 @@ const Containers = () => {
                         <Col className='text-center colorPrincipal'>
                         </Col>
                     </Row>
-                    <Form onSubmit={e => actions.addContainer(e)}>
+                    <Form onSubmit={(e) => actions.addContainer(e)}>
                         <Form.Row>
                             <Col>
-                                <Form.Group as={Col} controlId="typeOfMaterial">
+                                <Form.Group as={Col}>
                                     <Form.Control type="text" placeholder="Tipo de material" className="inputForm" id="typeOfMaterial" name="typeOfMaterial"
-                                        value={store.typeOfMaterial} onChange={actions && actions.handleChange} />
+                                        defaultValue={store.typeOfMaterial} onChange={(e) => actions.handleChange(e)} />
                                 </Form.Group>
                             </Col>
                             <Col>
-                                <Form.Group as={Col} controlId="capacity">
+                                <Form.Group as={Col}>
                                     <Form.Control type="text" placeholder="Capacidad" className="inputForm" id="capacity" name="capacity"
-                                        value={store.capacity} onChange={actions && actions.handleChange} />
+                                        defaultValue={store.capacity} onChange={actions.handleChange} />
                                 </Form.Group>
                             </Col>
                             <Col>
-                                <Form.Group as={Col} controlId="location">
+                                <Form.Group as={Col}>
                                     <Form.Control type="text" placeholder="Locación" className="inputForm" id="location" name="location"
-                                        value={store.location} onChange={actions && actions.handleChange} />
+                                        defaultValue={store.location} onChange={actions.handleChange} />
                                 </Form.Group>
                             </Col>
                             <Col>
-                                <Form.Group as={Col} controlId="length">
+                                <Form.Group as={Col}>
                                     <Form.Control type="text" placeholder="Longitud" className="inputForm" id="length" name="length"
-                                        value={store.length} onChange={actions && actions.handleChange} />
+                                        defaultValue={store.length} onChange={actions.handleChange} />
                                 </Form.Group>
                             </Col>
                             <Col>
-                                <Form.Group as={Col} controlId="latitude">
+                                <Form.Group as={Col}>
                                     <Form.Control type="text" placeholder="Latitud" className="inputForm" id="latitude" name="latitude"
-                                        value={store.latitude} onChange={actions && actions.handleChange} />
+                                        defaultValue={store.latitude} onChange={actions.handleChange} />
                                 </Form.Group>
                             </Col>
                             <Col>
@@ -112,12 +116,28 @@ const Containers = () => {
                                                             <td>{item.latitude}</td>
                                                             <td>{item.registerDate}</td>
                                                             <td>
-                                                                <Button className="fondoColorSecundario mr-4" onClick={() => handleClick(index)}>
+                                                                <Button className="fondoColorSecundario mr-4" onClick={() => { handleClick(index) }}>
                                                                     Editar
-                                                                    </Button>
+                                                                </Button>
                                                                 <Button type="submit" className="bg-danger" onClick={() => {
-                                                                    actions.deleteContainer(index, item.containerId)
+                                                                    handleShow()
                                                                 }}>Eliminar</Button>
+                                                                <Modal show={show} onHide={handleClose}>
+                                                                    <Modal.Header closeButton>
+                                                                        <Modal.Title>Eliminar</Modal.Title>
+                                                                    </Modal.Header>
+                                                                    <Modal.Body>¿Estás seguro de que quieres eliminar el contenedor?</Modal.Body>
+                                                                    <Modal.Footer>
+                                                                        <Button variant="secondary" onClick={handleClose}>
+                                                                            No eliminar
+                                                                        </Button>
+                                                                        <Button variant="danger" onClick={() => {
+                                                                            handleClose(); actions.deleteContainer(index, item.containerId);
+                                                                        }}>
+                                                                            Eliminar
+                                                                        </Button>
+                                                                    </Modal.Footer>
+                                                                </Modal>
                                                             </td>
                                                         </tr>
                                                         <ModalContainer

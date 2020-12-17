@@ -1,7 +1,6 @@
 const getState = ({ getStore, getActions, setStore }) => {
     return {
         store: {
-
             container: [],
             editContainer: {},
             typeOfMaterial: '',
@@ -10,6 +9,8 @@ const getState = ({ getStore, getActions, setStore }) => {
             length: '',
             latitude: '',
             errors: null,
+            currentNotify: "",
+            currentUser: null,
 
             notifications: [
                 {
@@ -18,28 +19,26 @@ const getState = ({ getStore, getActions, setStore }) => {
                     notificationDate: ""
                 }
             ],
+
             notify: {
                 status: "Pendiente",
                 notify: "Enviada",
             },
-            currentNotify: "",
-            currentUser: null,
 
             user_signup: {
                 username: "",
                 email: "",
                 password: ""
-
-                //     user_signup:{
-                //         username : "",
-                //         email : "",
-                //         password : ""
-                //     },
-                //     user_login:{
-                //         email : "",
-                //         password : ""
-                //     }
             },
+            //     user_signup:{
+            //         username : "",
+            //         email : "",
+            //         password : ""
+            //     },
+            //     user_login:{
+            //         email : "",
+            //         password : ""
+            //     }
         },
         actions: {
             onChangeUser: evento => {
@@ -130,7 +129,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             //////////////////////////////////////
             // Fetch List Notifications - Alejo //
             //////////////////////////////////////
-            getNotifications: async () => {
+            getNotifications: () => {
                 console.log('---Flux Get Notifications---')
                 const config = {
                     "method": "GET",
@@ -147,10 +146,14 @@ const getState = ({ getStore, getActions, setStore }) => {
                     .catch((error) => console.log(error));
             },
 
-            handleChange: e => {
+            handleChange: (e) => {
                 setStore({
-                    [e.target.name]: e.target.value,
-                })
+                    [e.target.name]: e.target.value
+                });
+                // const {container}=getStore()
+                // setStore({
+                //     ...container,
+                //     [e.target.name]: e.target.value})
             },
 
             addContainer: (e) => {
@@ -179,12 +182,11 @@ const getState = ({ getStore, getActions, setStore }) => {
             },
 
             editContainer: (index) => {
-                // index.preventDefault();
                 const { container } = getStore();
-                setStore({ editContainer: container[index] })
-                console.log(container[index])
+                setStore({ editContainer: container[index] });
+                console.log(container[index]);
 
-                // fetch(`http://127.0.0.1:5000/api/container/edit_container/${id}`,
+                // fetch(`http://127.0.0.1:5000/api/container/edit_container/${index}`,
                 //     {
                 //         method: "GET",
                 //         headers: {
@@ -222,7 +224,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                 })
                     .then(resp => resp.json())
                     .then(data => {
-                        // getActions().getContainer("http://127.0.0.1:5000/api/container")
+                        getActions().getContainer("http://127.0.0.1:5000/api/container")
                         console.log(data)
                     })
                     .catch((error) => console.log(error));
@@ -260,7 +262,6 @@ const getState = ({ getStore, getActions, setStore }) => {
             },
 
         },
-        
     };
 };
 
