@@ -2,7 +2,7 @@ import React from "react"
 import { Link, NavLink, withRouter} from "react-router-dom"
 import {useDispatch, useSelector} from 'react-redux'
 import {cerrarSesionAccion} from '../store/userSign'
-import { Navbar, Nav } from "react-bootstrap";
+import { Navbar, Nav, Container } from "react-bootstrap";
 import LogoColorPurple from "../img/LogoColorPurple.svg"
 
 //Secciones
