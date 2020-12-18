@@ -20,6 +20,7 @@ import Notifications from "./views/Notifications";
 import SendNotify from "./views/SendNotify";
 //import Signup from "./views/Signup";
 import Login from "./views/Login"
+import FooterRRSS from "./components/FooterRRSS"
 
 
 
@@ -59,6 +60,7 @@ function App() {
     <Router>
       <div className="container mt-3">
         <NavBarTop />
+        
         <Switch>
           <Route component={Login} path="/login"/>
           <Route path="/home" component={Home} exact/>
@@ -69,7 +71,9 @@ function App() {
           <Route exact path="/contactanos" component={Contact} />
           <Route exact path="/enviar-notificacion" component={SendNotify} />
         </Switch>
+        
       </div>
+      <FooterRRSS />
     </Router>
   ) : (
     <div>Cargando...</div>
