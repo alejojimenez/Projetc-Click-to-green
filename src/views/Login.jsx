@@ -23,8 +23,18 @@ const Login = (props) => {
 
   return (
     <>
-      <Container fluid className="style-container-pay-methods">
         <Row className="justify-content-center">
+          
+          <Col sm={"1"} md={"6"} lg={"6"}>
+            <img
+              className="style-img-pay-methods"
+              src={parqueBicentenario}
+              alt="Parque Bicentenario"
+            />
+            <span className="text-pay-methods-Image">
+              ELIGENOS PARA UN MEJOR FUTURO
+            </span>
+          </Col>
           <Col sm={"1"} md={"6"} lg={"6"}>
             <Row className="position-title-pay-methods justify-content-center">
               <h2 className="colorPrincipal text-center">BIENVENIDO</h2>
@@ -46,18 +56,8 @@ const Login = (props) => {
               </button>
             </Col>
           </Col>
-          <Col sm={"1"} md={"6"} lg={"6"}>
-            <img
-              className="style-img-pay-methods"
-              src={parqueBicentenario}
-              alt="Parque Bicentenario"
-            />
-            <span className="text-pay-methods-Image">
-              ELIGENOS PARA UN MEJOR FUTURO
-            </span>
-          </Col>
         </Row>
-      </Container>
+
     </>
   );
 };
