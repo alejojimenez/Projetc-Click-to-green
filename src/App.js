@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 // import { Context } from './store/appContext';
 import injectContext from './store/appContext';
-import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom"
+import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { auth } from "./firebase";
 
 
 // SECCIONES 
 import Home from "./views/Home";
-import NavBarTop from "./components/NavBarTop"
+import NavBarTop from "./components/NavBarTop";
 //import HomeApp from "./views/HomeApp";
 // import NavBarSide from "./components/NavBarSideOld";
 // import Suggestions from './views/Suggestions'
@@ -17,6 +17,7 @@ import WhoWeAre from "./views/WhoWeAre";
 import Contact from "./views/Contact";
 import Containers from "./views/Containers";
 import Notifications from "./views/Notifications";
+import ViewCompany from "./views/ViewCompany";
 import SendNotify from "./views/SendNotify";
 //import Signup from "./views/Signup";
 import Login from "./views/Login"
@@ -64,6 +65,7 @@ function App() {
         <Switch>
           <Route component={Login} path="/login"/>
           <Route path="/home" component={Home} exact/>
+          <Route path="/compania" component={ViewCompany}/>
           <Route path="/contenedores" component={Containers}/>
           <Route path="/notificaciones" component={Notifications}/>
           <Route exact path="/quienes-somos" component={WhoWeAre} />
