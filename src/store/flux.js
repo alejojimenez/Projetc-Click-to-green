@@ -8,6 +8,18 @@ const getState = ({ getStore, getActions, setStore }) => {
             location: '',
             length: '',
             latitude: '',
+            
+            company:[],
+            editCompany: {},
+            businessName: '',
+            rut: '',
+            email: '',
+            phone1: '',
+            phone2: '',
+            address: '',
+            regional: '',
+            commune: '',
+
             errors: null,
             currentNotify: "",
             currentUser: null,
@@ -198,7 +210,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                 //     .then(data => console.log(data))
                 //     .catch((error) => console.log(error));
             },
-
+            
             updateContainer: (e, container) => {
                 e.preventDefault();
                 // const store = getStore();
@@ -208,7 +220,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                 // console.log("traera el id"+index)
                 const { containerId } = editContainer
                 console.log(e, container)
-
+                
                 fetch(`http://127.0.0.1:5000/api/container/update_container/${containerId}`, {
                     method: 'PUT',
                     body: JSON.stringify({
@@ -222,14 +234,14 @@ const getState = ({ getStore, getActions, setStore }) => {
                         'Content-Type': 'application/json'
                     }
                 })
-                    .then(resp => resp.json())
-                    .then(data => {
-                        getActions().getContainer("http://127.0.0.1:5000/api/container")
-                        console.log(data)
-                    })
-                    .catch((error) => console.log(error));
+                .then(resp => resp.json())
+                .then(data => {
+                    getActions().getContainer("http://127.0.0.1:5000/api/container")
+                    console.log(data)
+                })
+                .catch((error) => console.log(error));
             },
-
+            
             deleteContainer: (index, id) => {
                 // index.preventDefault();
                 // const store = getStore();
@@ -238,27 +250,121 @@ const getState = ({ getStore, getActions, setStore }) => {
                 setStore(...container)
                 console.log(index)
                 console.log(id)
-
+                
                 fetch(`http://127.0.0.1:5000/api/container/delete_container/${id}`,
-                    {
-                        method: "DELETE",
+                {
+                    method: "DELETE",
                         headers: {
                             "Content-Type": "application/json"
                         }
                     }
-                )
+                    )
                     .then(res => res.json())
                     .then(data => console.log(data))
             },
 
             getContainer: (url) => {
                 fetch(url)
-                    .then(response => response.json())
+                .then(response => response.json())
                     .then(data => {
                         console.log(data)
                         setStore({ container: data })
                     })
                     .catch((error) => console.log(error));
+            },
+            
+            deleteCompany: (index, id) => {
+                // const store = getStore();
+                const { company } = getStore();
+                company.splice(index, 1)
+                setStore(...company)
+                console.log(index)
+                console.log(id)
+                
+                fetch(`http://127.0.0.1:5000/api/compania/delete_compania/${id}`,
+                {
+                    method: "DELETE",
+                        headers: {
+                            "Content-Type": "application/json"
+                        }
+                    }
+                    )
+                    .then(res => res.json())
+                    .then(data => console.log(data))
+            },
+                
+            addCompany: (e) => {
+                e.preventDefault();
+                const store = getStore();
+
+                fetch("http://127.0.0.1:5000/api/compania/compania", {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        "businessName": store.businessName,
+                        "rut": store.rut,
+                        "email": store.email,
+                        "phone1": store.phone1,
+                        "phone2": store.phone2,
+                        "address": store.address,
+                        "regional": store.regional,
+                        "commune": store.commune
+                    }),
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                })
+                    .then(resp => resp.json())
+                    .then(data => {
+                        getActions().getCompany("http://127.0.0.1:5000/api/compania")
+                        console.log(data)
+                    })
+                    .catch((error) => console.log(error));
+            },
+
+            editCompany: (index) => {
+                    const { company } = getStore();
+                    setStore({ editCompany: company[index] });
+                    console.log(company[index]);
+            },
+            
+            updateCompany: (e, company) => {
+                e.preventDefault();
+                const { editCompany } = getStore();
+                const { companyId } = editCompany
+                console.log(e, company)
+                
+                fetch(`http://127.0.0.1:5000/api/compania/update_compania/${companyId}`, {
+                    method: 'PUT',
+                    body: JSON.stringify({
+                        "businessName": company.businessName,
+                        "rut": company.rut,
+                        "email": company.email,
+                        "phone1": company.phone1,
+                        "phone2": company.phone2,
+                        "address": company.address,
+                        "regional": company.regional,
+                        "commune": company.commune
+                    }),
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                })
+                .then(resp => resp.json())
+                .then(data => {
+                    getActions().getCompany("http://127.0.0.1:5000/api/compania")
+                    console.log(data)
+                })
+                .catch((error) => console.log(error));
+            },
+
+            getCompany: (url) => {
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data)
+                    setStore({ company: data })
+                })
+                .catch((error) => console.log(error));
             },
 
         },

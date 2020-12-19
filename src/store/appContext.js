@@ -20,6 +20,7 @@ const injectContext = PassedComponent => {
 		);
         useEffect(() => {
 			state.actions.getContainer("http://127.0.0.1:5000/api/container")
+			state.actions.getCompany("http://127.0.0.1:5000/api/compania")
 			// state.actions.getNotifications("http://127.0.0.1:5000/api/get_notification");   
        /**
 			 * EDIT THIS!

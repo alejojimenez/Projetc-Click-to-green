@@ -10,7 +10,7 @@ const ModalContainer = (props) => {
         capacity: '',
         location: '',
         length: '',
-        latitude: '',
+        latitude: ''
     })
     const handleChange = (e) => {
         e.preventDefault()
