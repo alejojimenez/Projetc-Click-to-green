@@ -12,10 +12,11 @@ const Notifications = () => {
 
     const [isOpen, setIsOpen] = useState(false);
 
+
     return (
         <>
             <Container>
-                <div className="containers-notificatios">
+                <div >
                     <div className="notifications">
                         <Row className='text-center py-5'>
                             <Col>
