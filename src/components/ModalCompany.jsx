@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
-import { Context } from "../store/appContext"
-import { Modal, Button, Col, Form } from 'react-bootstrap'
+import { Context } from "../store/appContext";
+import { Modal, Button, Col, Form } from 'react-bootstrap';
 
 const ModalCompany = (props) => {
     console.log(props)
@@ -108,29 +108,13 @@ const ModalCompany = (props) => {
                         <Form.Row>
                             <Col>
                                 <Button type="submit" className="fondoColorPrincipal float-left" onClick={() => { handleShow() }}>Actualizar</Button>
-                                {/* <Modal show={show} onHide={handleClose}>
-                                    <Modal.Header closeButton>
-                                        <Modal.Title>Actualizar</Modal.Title>
-                                    </Modal.Header>
-                                    <Modal.Body>¿Estás seguro de querer actualizar los datos de la empresa?</Modal.Body>
-                                    <Modal.Footer>
-                                        <Button variant="secondary" onClick={handleClose}>
-                                            No
-                                        </Button>
-                                        <Button className="fondoColorSecundario" onClick={() => {
-                                            handleClose();
-                                        }}>
-                                            Actualizar
-                                        </Button>
-                                    </Modal.Footer>
-                                </Modal> */}
                             </Col>
                         </Form.Row>
                     </Form>
                 </>
             </Modal.Body>
             <Modal.Footer>
-                <Button onClick={props.onHide}>Close</Button>
+                <Button onClick={props.onHide}>Cerrar</Button>
             </Modal.Footer>
         </Modal>
     );

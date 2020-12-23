@@ -14,7 +14,6 @@ const Containers = () => {
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-    // console.log('prueba 1', store.container)
 
     return (
         <>

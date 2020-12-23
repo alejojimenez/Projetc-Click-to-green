@@ -7,7 +7,15 @@ const WhoWeAre = () => {
         <>
             <Container className="style-container-who-we-are" fluid>
                 <Row className='position-title-whoweare justify-content-center'>
-                    <h2 className="colorPrincipal">QUIENES SOMOS</h2>
+                    <h2 className="colorPrincipal mb-4">QUIENES SOMOS</h2>
+                </Row>
+                <br />
+                <Row className='justify-content-center md-4'>
+                    <Col sm={'1'} md={'10'}>
+                        <p>Nacimos de una idea para un proyecto educativo, hoy somos una realidad y queremos formar parte esencial
+                            en la cadena de valor del rubro del reciclaje, Por un Mejor Futuro.
+                        </p>
+                    </Col>
                 </Row>
                 <br />
                 <Row className='justify-content-center' >
@@ -45,7 +53,7 @@ const WhoWeAre = () => {
                     <br /><br />
                     <Col sm={'1'} md={'4'}>
                         <Row>
-                            <div className="row align-items-start">
+                            <div className="row align-items-start padding-responsive-valores">
                                 <div className="col-12">
                                     <h3 className="colorPrincipal">Valores</h3>
                                 </div>
@@ -86,4 +94,4 @@ const WhoWeAre = () => {
     )
 }
 
-export default WhoWeAre
+export default WhoWeAre;

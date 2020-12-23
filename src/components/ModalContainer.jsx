@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
-import { Context } from "../store/appContext"
-import { Modal, Button, Col, Form } from 'react-bootstrap'
+import { Context } from "../store/appContext";
+import { Modal, Button, Col, Form } from 'react-bootstrap';
 
 const ModalContainer = (props) => {
     console.log(props)
@@ -19,10 +19,6 @@ const ModalContainer = (props) => {
             [e.target.name]: e.target.value,
         })
     }
-
-
-    // console.log('prueba 1', store.container)
-
 
     return (
         <Modal

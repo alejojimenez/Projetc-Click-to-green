@@ -44,12 +44,12 @@ const Notifications = () => {
                                         return (
                                             <tr className="colorSecundario" key={index}>
                                                 <td>{item.notificationDate}</td>
-                                                <td>{ }</td>
-                                                <td>{ }</td>
-                                                <td>{ }</td>
+                                                <td>Reciclaje Cristoro</td>
+                                                <td>Carton</td>
+                                                <td>Santiago</td>
                                                 <td>{item.status}</td>
                                                 <td>{item.notify}</td>
-                                                <td>{ }</td>
+                                                <td>Por Asignar</td>
                                                 <td>
                                                     <ModalNotifications
                                                         hideModal={() => setIsOpen(false)}

@@ -15,11 +15,11 @@
 
 @media only screen and (min-width: 1025px) {
     .position-title-whoweare {
-        padding-top: 255px;
+        padding-top: 200px;
     }
 
     .style-container-who-we-are {
         background-color: #F4F4F4;
-        height: 915px;
+        height: 870px;
     }
 }
