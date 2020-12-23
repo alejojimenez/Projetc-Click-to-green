@@ -14,21 +14,21 @@ const PayMethod = () => {
                     </Col>
                     <Col lg={'6'} md={'6'} sm={'1'}>
                         <Row className='position-title-pay-methods justify-content-center'>
-                            <h2 className="colorPrincipal text-center">PLANES DE PAGO</h2>
+                            <h2 className="colorPrincipal text-center">NUESTROS PLANES</h2>
                         </Row>
                         <br />
                         <Row className='justify-content-center'>
                             <Col sm={1} md={4} lg={4}>
                                 <Card className="size-card-pay-method fondoColorSecundario">
                                     <Card.Body>
-                                        <Card.Title className="text-center text-light">19.990</Card.Title>
+                                        <Card.Title className="text-center text-light">Valor Mensual</Card.Title>
                                         <Card.Text className="text-center text-light">
-                                            CLP
-                                    </Card.Text>
-                                        <Card.Title className="text-light">Plan Mensual</Card.Title>
+                                            <h3>UF 0.1</h3>
+                                        </Card.Text>
+                                        <Card.Title className="text-light">Plan Tester</Card.Title>
                                         <Card.Text className="text-light">
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor
-                                    </Card.Text>
+                                            Plan de prueba por un mes de cualquiera de los planes, bien sea Plasper y/o Glass.
+                                        </Card.Text>
                                         <Button className="fondoColorPrincipal m-auto">Tu eliges</Button>
                                     </Card.Body>
                                 </Card>
@@ -36,14 +36,14 @@ const PayMethod = () => {
                             <Col sm={1} md={4} lg={4}>
                                 <Card className="size-card-pay-method fondoColorPrincipal">
                                     <Card.Body>
-                                        <Card.Title className="text-center text-light">29.990</Card.Title>
+                                        <Card.Title className="text-center text-light">Valor Mensual</Card.Title>
                                         <Card.Text className="text-center text-light">
-                                            CLP
-                                    </Card.Text>
-                                        <Card.Title className="text-light">Plan Semestral</Card.Title>
+                                            <h3>UF 0.5</h3>
+                                        </Card.Text>
+                                        <Card.Title className="text-light">Plan Plasper</Card.Title>
                                         <Card.Text className="text-light">
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor
-                                    </Card.Text>
+                                            Plan orientado a la recolección de residuos de reciclaje de Plastico y Papel. Tipo de Contrato Anual.
+                                        </Card.Text>
                                         <Button className="fondoColorSecundario m-auto">Tu eliges</Button>
                                     </Card.Body>
                                 </Card>
@@ -51,14 +51,14 @@ const PayMethod = () => {
                             <Col sm={1} md={4} lg={4}>
                                 <Card className="size-card-pay-method fondoColorSecundario">
                                     <Card.Body>
-                                        <Card.Title className="text-center text-light">39.990</Card.Title>
+                                        <Card.Title className="text-center text-light">Valor Mensual</Card.Title>
                                         <Card.Text className="text-center text-light">
-                                            CLP
-                                    </Card.Text>
-                                        <Card.Title className="text-light">Plan Anual</Card.Title>
+                                            <h3>UF 1.0</h3>
+                                        </Card.Text>
+                                        <Card.Title className="text-light">Plan Glass</Card.Title>
                                         <Card.Text className="text-light">
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor
-                                    </Card.Text>
+                                            Plan orientado a la recolección de residuos de reciclaje de vidro. Tipo de Contrato Anual.
+                                        </Card.Text>
                                         <Button className="fondoColorPrincipal m-auto">Tu eliges</Button>
                                     </Card.Body>
                                 </Card>

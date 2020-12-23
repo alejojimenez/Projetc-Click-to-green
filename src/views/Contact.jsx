@@ -29,19 +29,16 @@ const Suggestions = () => {
                                 <Form.Group as={Col} controlId="formGridName">
                                     <Form.Control type="text" placeholder="Nombre" name="first"/>
                                 </Form.Group>
-
                                 <Form.Group as={Col} controlId="formGridLastName">
                                     <Form.Control type="text" placeholder="Apellido" name="last"/>
                                 </Form.Group>
                             </Form.Row>
-
                             <Form.Group controlId="formGridEnail">
                                 <Form.Control type="email" placeholder="Email" name="email"/>
                             </Form.Group>
                             <Form.Group controlId="exampleForm.ControlTextarea1">
                                 <Form.Control as="textarea" placeholder="Comentarios" rows={3} name="message"/>
                             </Form.Group>
-
                             <Button className="fondoColorSecundario" style={{ width: '150px' }} value="Send" type="submit">
                                 Enviar
                             </Button>

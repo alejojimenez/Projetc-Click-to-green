@@ -20,7 +20,7 @@ const SendNotify = () => {
                     </Button>
                     {console.log("Componente Despues del Click", store.currentNotify)}
                     {store.currentNotify !== ""
-                        ? <h3 className="text-send-notify align-items-center justify-content-center">{store.currentNotify} ¡Gracias! </h3>
+                        ? <h3 className="text-send-notify align-items-center justify-content-center">{store.currentNotify}¡Gracias!     Será atendida a la brevedad posible</h3>
                         : ""
                     }
                     {timeOut}

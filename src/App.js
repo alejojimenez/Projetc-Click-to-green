@@ -1,17 +1,12 @@
 import React, { useState } from "react";
-// import { Context } from './store/appContext';
 import injectContext from './store/appContext';
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { auth } from "./firebase";
 
-
 // SECCIONES 
 import Home from "./views/Home";
 import NavBarTop from "./components/NavBarTop";
-//import HomeApp from "./views/HomeApp";
-// import NavBarSide from "./components/NavBarSideOld";
-// import Suggestions from './views/Suggestions'
 import PayMethod from "./views/PayMethod";
 import WhoWeAre from "./views/WhoWeAre";
 import Contact from "./views/Contact";
@@ -19,16 +14,11 @@ import Containers from "./views/Containers";
 import Notifications from "./views/Notifications";
 import ViewCompany from "./views/ViewCompany";
 import SendNotify from "./views/SendNotify";
-//import Signup from "./views/Signup";
-import Login from "./views/Login"
-import FooterRRSS from "./components/FooterRRSS"
-
-
+import Login from "./views/Login";
+import FooterRRSS from "./components/FooterRRSS";
 
 function App() {
-  // const { store } = useContext(Context);
   const [firebaseUser, setFirebaseUser] = useState(false);
-
 
   React.useEffect(() => {
     const fetchUser = () => {
@@ -61,7 +51,6 @@ function App() {
     <Router>
       <div className="container mt-3">
         <NavBarTop />
-        
         <Switch>
           <Route component={Login} path="/login"/>
           <Route path="/home" component={Home} exact/>
@@ -73,7 +62,6 @@ function App() {
           <Route exact path="/contactanos" component={Contact} />
           <Route exact path="/enviar-notificacion" component={SendNotify} />
         </Switch>
-        
       </div>
       <FooterRRSS />
     </Router>
@@ -81,6 +69,5 @@ function App() {
     <div>Cargando...</div>
   );
 }
-
 
 export default injectContext(App);

@@ -42,15 +42,6 @@ const getState = ({ getStore, getActions, setStore }) => {
                 email: "",
                 password: ""
             },
-            //     user_signup:{
-            //         username : "",
-            //         email : "",
-            //         password : ""
-            //     },
-            //     user_login:{
-            //         email : "",
-            //         password : ""
-            //     }
         },
         actions: {
             onChangeUser: evento => {
@@ -113,10 +104,6 @@ const getState = ({ getStore, getActions, setStore }) => {
                         "Content-type": "application/json"
                     },
                     body: JSON.stringify(store.notify),
-                    // "body": JSON.stringify({
-                    //     "status": "Pendiente",
-                    //     "notify": "Enviada"
-                    // }),
                 }
                 fetch("http://127.0.0.1:5000/api/create_notification", config)
                     .then(resp => resp.json())
@@ -126,17 +113,6 @@ const getState = ({ getStore, getActions, setStore }) => {
                 setStore({ ...sendNotify })
                 store.currentNotify = "Enviada"
                 console.log("En el Flux", store.currentNotify)
-            
-                // console.log("sendNotify", sendNotify)
-                // return (
-                //     <>
-                //     {console.log("Despues del Click", store.currentNotify)};
-                //     {store.currentNotify === "Enviada"
-                //         ? <h3 className="text-send-notify align-items-center justify-content-center">{store.currentNotify} ¡Gracias!</h3>
-                //         : ""
-                //     }
-                //     </>
-                // )
             },
             //////////////////////////////////////
             // Fetch List Notifications - Alejo //
@@ -162,16 +138,11 @@ const getState = ({ getStore, getActions, setStore }) => {
                 setStore({
                     [e.target.name]: e.target.value
                 });
-                // const {container}=getStore()
-                // setStore({
-                //     ...container,
-                //     [e.target.name]: e.target.value})
             },
 
             addContainer: (e) => {
                 e.preventDefault();
                 const store = getStore();
-
                 fetch("http://127.0.0.1:5000/api/container/add_container", {
                     method: 'POST',
                     body: JSON.stringify({
@@ -197,30 +168,13 @@ const getState = ({ getStore, getActions, setStore }) => {
                 const { container } = getStore();
                 setStore({ editContainer: container[index] });
                 console.log(container[index]);
-
-                // fetch(`http://127.0.0.1:5000/api/container/edit_container/${index}`,
-                //     {
-                //         method: "GET",
-                //         headers: {
-                //             "Content-Type": "application/json"
-                //         }
-                //     }
-                // )
-                //     .then(res => res.json())
-                //     .then(data => console.log(data))
-                //     .catch((error) => console.log(error));
             },
             
             updateContainer: (e, container) => {
                 e.preventDefault();
-                // const store = getStore();
                 const { editContainer } = getStore();
-                // container.splice(index, 1, newContainer)
-                // setStore(...container)
-                // console.log("traera el id"+index)
                 const { containerId } = editContainer
                 console.log(e, container)
-                
                 fetch(`http://127.0.0.1:5000/api/container/update_container/${containerId}`, {
                     method: 'PUT',
                     body: JSON.stringify({
@@ -243,24 +197,21 @@ const getState = ({ getStore, getActions, setStore }) => {
             },
             
             deleteContainer: (index, id) => {
-                // index.preventDefault();
-                // const store = getStore();
                 const { container } = getStore();
                 container.splice(index, 1)
                 setStore(...container)
                 console.log(index)
                 console.log(id)
-                
                 fetch(`http://127.0.0.1:5000/api/container/delete_container/${id}`,
-                {
+                    {
                     method: "DELETE",
                         headers: {
                             "Content-Type": "application/json"
                         }
                     }
-                    )
-                    .then(res => res.json())
-                    .then(data => console.log(data))
+                )
+                .then(res => res.json())
+                .then(data => console.log(data))
             },
 
             getContainer: (url) => {
@@ -269,34 +220,31 @@ const getState = ({ getStore, getActions, setStore }) => {
                     .then(data => {
                         console.log(data)
                         setStore({ container: data })
-                    })
-                    .catch((error) => console.log(error));
+                })
+                .catch((error) => console.log(error));
             },
             
             deleteCompany: (index, id) => {
-                // const store = getStore();
                 const { company } = getStore();
                 company.splice(index, 1)
                 setStore(...company)
                 console.log(index)
                 console.log(id)
-                
                 fetch(`http://127.0.0.1:5000/api/compania/delete_compania/${id}`,
-                {
+                    {
                     method: "DELETE",
                         headers: {
                             "Content-Type": "application/json"
                         }
                     }
-                    )
-                    .then(res => res.json())
-                    .then(data => console.log(data))
+                )
+                .then(res => res.json())
+                .then(data => console.log(data))
             },
                 
             addCompany: (e) => {
                 e.preventDefault();
                 const store = getStore();
-
                 fetch("http://127.0.0.1:5000/api/compania/compania", {
                     method: 'POST',
                     body: JSON.stringify({
@@ -313,18 +261,18 @@ const getState = ({ getStore, getActions, setStore }) => {
                         'Content-Type': 'application/json'
                     }
                 })
-                    .then(resp => resp.json())
-                    .then(data => {
-                        getActions().getCompany("http://127.0.0.1:5000/api/compania")
-                        console.log(data)
-                    })
-                    .catch((error) => console.log(error));
+                .then(resp => resp.json())
+                .then(data => {
+                getActions().getCompany("http://127.0.0.1:5000/api/compania")
+                    console.log(data)
+                })
+                .catch((error) => console.log(error));
             },
 
             editCompany: (index) => {
-                    const { company } = getStore();
-                    setStore({ editCompany: company[index] });
-                    console.log(company[index]);
+                const { company } = getStore();
+                setStore({ editCompany: company[index] });
+                console.log(company[index]);
             },
             
             updateCompany: (e, company) => {
@@ -332,7 +280,6 @@ const getState = ({ getStore, getActions, setStore }) => {
                 const { editCompany } = getStore();
                 const { companyId } = editCompany
                 console.log(e, company)
-                
                 fetch(`http://127.0.0.1:5000/api/compania/update_compania/${companyId}`, {
                     method: 'PUT',
                     body: JSON.stringify({
@@ -366,11 +313,8 @@ const getState = ({ getStore, getActions, setStore }) => {
                 })
                 .catch((error) => console.log(error));
             },
-
         },
     };
 };
 
 export default getState;
-
-
