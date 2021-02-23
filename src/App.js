@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-d
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { auth } from "./firebase";
 
-// SECCIONES 
+// SECCIONES
 import Home from "./views/Home";
 import NavBarTop from "./components/NavBarTop";
 import PayMethod from "./views/PayMethod";
@@ -49,11 +49,10 @@ function App() {
 
   return firebaseUser !== false ? (
     <Router>
-      <div className="container mt-3">
         <NavBarTop />
         <Switch>
           <Route component={Login} path="/login"/>
-          <Route path="/home" component={Home} exact/>
+          <Route exact path="/home" component={Home}/>
           <Route path="/compania" component={ViewCompany}/>
           <Route path="/contenedores" component={Containers}/>
           <Route path="/notificaciones" component={Notifications}/>
@@ -62,7 +61,6 @@ function App() {
           <Route exact path="/contactanos" component={Contact} />
           <Route exact path="/enviar-notificacion" component={SendNotify} />
         </Switch>
-      </div>
       <FooterRRSS />
     </Router>
   ) : (

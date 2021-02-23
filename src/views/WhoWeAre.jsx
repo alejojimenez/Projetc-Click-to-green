@@ -7,7 +7,7 @@ const WhoWeAre = () => {
         <>
             <Container className="style-container-who-we-are" fluid>
                 <Row className='position-title-whoweare justify-content-center'>
-                    <h2 className="colorPrincipal mb-4">QUIENES SOMOS</h2>
+                    <h2 className="colorPrincipal mb-4 ">QUIENES SOMOS</h2>
                 </Row>
                 <br />
                 <Row className='justify-content-center md-4'>

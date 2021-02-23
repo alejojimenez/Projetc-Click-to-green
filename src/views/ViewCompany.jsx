@@ -22,7 +22,7 @@ const ViewCompany = () => {
                             <h3 className="colorPrincipal text-center titlePago"><Col>DATOS DE LA EMPRESA</Col></h3>
                         </Col>
                     </Row>
-                    <div className="fondoColorPrincipal containerCompany">
+                    <div className="fondoColorSecundario containerCompany">
                         <Row className="mb-3">
                             {
                                 store.company !== undefined ?
@@ -61,7 +61,7 @@ const ViewCompany = () => {
                                                         </Row>
                                                         <Row className="m-3 ">
                                                             <Col>
-                                                                <Button className="fondoColorPrincipal mr-4" onClick={() => { handleClick(index) }}>
+                                                                <Button className="fondoColorSecundario mr-4" onClick={() => { handleClick(index) }}>
                                                                     Actualizar
                                                                 </Button>
                                                             </Col>
