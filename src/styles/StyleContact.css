@@ -21,7 +21,7 @@
     .size-contact {
         height: 550px;
     }
-    
+
     .position-title-contact {
         padding-top: 275px;
     }
@@ -29,5 +29,7 @@
     .style-container-contact {
         background-color: #F4F4F4;
         height: 870px;
+        padding-right: 0px;
+        padding-left: 0px;
     }
 }
