@@ -2,6 +2,7 @@ import React, { useState, useContext, useEffect } from "react";
 import { Context } from "../store/appContext";
 import { Col, Row, Table, Container } from "react-bootstrap";
 import ModalNotifications from '../components/ModalNotifications';
+import "../styles/StyleModalNotification.css";
 
 const Notifications = () => {
     const { store, actions } = useContext(Context);
@@ -12,18 +13,17 @@ const Notifications = () => {
 
     const [isOpen, setIsOpen] = useState(false);
 
-
     return (
         <>
             <Container>
                 <div >
                     <div className="notifications">
-                        <Row className='text-center py-5'>
+                        <Row className='text-center py-2'>
                             <Col>
                                 <h3 className="colorPrincipal text-center titlePago"><Col>NOTIFICACIONES</Col></h3>
                             </Col>
                         </Row>
-                        <Row className="mb-3">
+                        <Row className="row scrolling-v mb-3">
                             <br />
                             <Table className='text-center colorPrincipal' striped bordered hover size="sm">
                                 <thead className="text-center">
@@ -57,8 +57,7 @@ const Notifications = () => {
                                                 </td>
                                             </tr>
                                         )
-                                    })
-                                    }
+                                    })}
                                 </tbody>
                             </Table>
                         </Row>

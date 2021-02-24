@@ -32,6 +32,19 @@ const getState = ({ getStore, getActions, setStore }) => {
                 }
             ],
 
+            users: [],
+
+            roles: [
+                {
+                    description: "Operador de Rutas",
+                    status: "Activo"
+                },
+                {
+                    description: "Administrador de Rutas",
+                    status: "Activo"
+                }
+            ],
+
             notify: {
                 status: "Pendiente",
                 notify: "Enviada",
@@ -138,6 +151,26 @@ const getState = ({ getStore, getActions, setStore }) => {
                 setStore({
                     [e.target.name]: e.target.value
                 });
+            },
+
+            //////////////////////////////
+            // Fetch List Users - Alejo //
+            //////////////////////////////
+            getUsers: () => {
+                console.log('---Flux Get Usuarios---')
+                const config = {
+                    "method": "GET",
+                    "headers": {
+                        "Content-type": "application/json"
+                    },
+                }
+                fetch("http://127.0.0.1:5000/api/get_user", config)
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log(data)
+                        setStore({ users: data })
+                    })
+                    .catch((error) => console.log(error));
             },
 
             addContainer: (e) => {

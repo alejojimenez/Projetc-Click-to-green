@@ -1,0 +1,12 @@
+/* *** Alejo *** */
+.scrolling-v {
+    height: 640px;
+    overflow-y: scroll;
+    margin-bottom: 12px;
+}
+
+/* *** Alejo *** */
+.scrolling-v .row {
+    overflow-y: scroll;
+    margin-bottom: 12px;
+}
