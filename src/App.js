@@ -12,6 +12,7 @@ import WhoWeAre from "./views/WhoWeAre";
 import Contact from "./views/Contact";
 import Containers from "./views/Containers";
 import Notifications from "./views/Notifications";
+import RootOperator from "./views/RootOperator";
 import ViewCompany from "./views/ViewCompany";
 import SendNotify from "./views/SendNotify";
 import Login from "./views/Login";
@@ -56,6 +57,7 @@ function App() {
           <Route path="/compania" component={ViewCompany}/>
           <Route path="/contenedores" component={Containers}/>
           <Route path="/notificaciones" component={Notifications}/>
+          <Route path="/operadores" component={RootOperator}/>
           <Route exact path="/quienes-somos" component={WhoWeAre} />
           <Route exact path="/planes-de-pago" component={PayMethod} />
           <Route exact path="/contactanos" component={Contact} />
