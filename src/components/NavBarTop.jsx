@@ -35,6 +35,9 @@ const NavBarTop = (props) => {
                             <Nav.Link className="mr-5 h5">
                                 <Link to='/notificaciones'>Notificaciones</Link>
                             </Nav.Link>
+                            <Nav.Link className="mr-5 h5">
+                                <Link to='/operadores'>Operadores de Ruta</Link>
+                            </Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
                     <NavLink className="btn btn-outline-secondary fondoColorPrincipal colorFondoLetra mr-2 " to="/home" exact>Inicio</NavLink>
@@ -50,7 +53,7 @@ const NavBarTop = (props) => {
                         <Link to='/home'><img src={LogoColorPurple} height="40" alt="logo" /></Link>
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                    <Navbar.Collapse id="basic-navbar-nav">                            
+                    <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="m-auto">
                             <Nav.Link className="mr-5 h5">
                                 <Link to='/quienes-somos'>Quienes Somos</Link>

@@ -8,7 +8,13 @@ const getState = ({ getStore, getActions, setStore }) => {
             location: '',
             length: '',
             latitude: '',
-            
+
+            operator: [],
+            editOperator: {},
+            username: '',
+            emailO: '',
+            telefono: '',
+
             company:[],
             editCompany: {},
             businessName: '',
@@ -202,7 +208,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                 setStore({ editContainer: container[index] });
                 console.log(container[index]);
             },
-            
+
             updateContainer: (e, container) => {
                 e.preventDefault();
                 const { editContainer } = getStore();
@@ -228,7 +234,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                 })
                 .catch((error) => console.log(error));
             },
-            
+
             deleteContainer: (index, id) => {
                 const { container } = getStore();
                 container.splice(index, 1)
@@ -256,7 +262,87 @@ const getState = ({ getStore, getActions, setStore }) => {
                 })
                 .catch((error) => console.log(error));
             },
-            
+
+            addOperator: (e) => {
+                e.preventDefault();
+                const store = getStore();
+                fetch("http://127.0.0.1:5000/api/operator/add_operator", {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        "username": store.username,
+                        "emailO": store.emailO,
+                        "telefono": store.telefono
+                    }),
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                })
+                    .then(resp => resp.json())
+                    .then(data => {
+                        getActions().getOperator("http://127.0.0.1:5000/api/operator")
+                        console.log(data)
+                    })
+                    .catch((error) => console.log(error));
+            },
+
+            editOperator: (index) => {
+                const { operator } = getStore();
+                setStore({ editOperator: operator[index] });
+                console.log(operator[index]);
+            },
+
+            updateOperator: (e, operator) => {
+                e.preventDefault();
+                const { editOperator } = getStore();
+                const { userId } = editOperator
+                console.log(e, operator)
+                fetch(`http://127.0.0.1:5000/api/operator/update_operator/${userId}`, {
+                    method: 'PUT',
+                    body: JSON.stringify({
+                        "username": operator.username,
+                        "emailO": operator.emailO,
+                        "telefono": operator.telefono
+                    }),
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                })
+                    .then(resp => resp.json())
+                    .then(data => {
+                        getActions().getOperator("http://127.0.0.1:5000/api/operator")
+                        console.log(data)
+                    })
+                    .catch((error) => console.log(error));
+            },
+
+            deleteOperator: (index, id) => {
+                const { operator } = getStore();
+                operator.splice(index, 1)
+                setStore(...operator)
+                console.log(index)
+                console.log(id)
+                fetch(`http://127.0.0.1:5000/api/operator/delete_operator/${id}`,
+                    {
+                        method: "DELETE",
+                        headers: {
+                            "Content-Type": "application/json"
+                        }
+                    }
+                )
+                    .then(res => res.json())
+                    .then(data => console.log(data))
+            },
+
+            getOperator: (url) => {
+                fetch(url)
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log(data)
+                        setStore({ operator: data })
+                    })
+                    .catch((error) => console.log(error));
+            },
+
             deleteCompany: (index, id) => {
                 const { company } = getStore();
                 company.splice(index, 1)
@@ -274,7 +360,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                 .then(res => res.json())
                 .then(data => console.log(data))
             },
-                
+
             addCompany: (e) => {
                 e.preventDefault();
                 const store = getStore();
@@ -307,7 +393,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                 setStore({ editCompany: company[index] });
                 console.log(company[index]);
             },
-            
+
             updateCompany: (e, company) => {
                 e.preventDefault();
                 const { editCompany } = getStore();

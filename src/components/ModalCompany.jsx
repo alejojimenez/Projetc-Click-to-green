@@ -41,7 +41,7 @@ const ModalCompany = (props) => {
             <Modal.Body className="show-grid">
                 <>
                     <Form onSubmit={(e) => actions.updateCompany(e, company)}>
-                        <Form.Row>
+                        {/* <Form.Row>
                             <Col>
                                 <Form.Group as={Col}>
                                     <Form.Control type="text" placeholder="Nombre de la empresa" className="inputForm" id="businessName" name="businessName"
@@ -56,7 +56,7 @@ const ModalCompany = (props) => {
                                         defaultValue={store.company.rut} onChange={(e) => handleChange(e)} />
                                 </Form.Group>
                             </Col>
-                        </Form.Row>
+                        </Form.Row> */}
                         <Form.Row>
                             <Col>
                                 <Form.Group as={Col}>
@@ -73,14 +73,14 @@ const ModalCompany = (props) => {
                                 </Form.Group>
                             </Col>
                         </Form.Row>
-                        <Form.Row>
+                        {/* <Form.Row>
                             <Col>
                                 <Form.Group as={Col}>
                                     <Form.Control type="text" placeholder="Teléfono 2" className="inputForm" id="phone2" name="phone2"
                                         defaultValue={store.company.phone2} onChange={(e) => handleChange(e)} />
                                 </Form.Group>
                             </Col>
-                        </Form.Row>
+                        </Form.Row> */}
                         <Form.Row>
                             <Col>
                                 <Form.Group as={Col}>
