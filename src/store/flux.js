@@ -294,9 +294,9 @@ const getState = ({ getStore, getActions, setStore }) => {
             updateOperator: (e, operator) => {
                 e.preventDefault();
                 const { editOperator } = getStore();
-                const { operatorId } = editOperator
+                const { userId } = editOperator
                 console.log(e, operator)
-                fetch(`http://127.0.0.1:5000/api/operator/update_operator/${operatorId}`, {
+                fetch(`http://127.0.0.1:5000/api/operator/update_operator/${userId}`, {
                     method: 'PUT',
                     body: JSON.stringify({
                         "username": operator.username,

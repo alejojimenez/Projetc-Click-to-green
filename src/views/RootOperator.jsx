@@ -8,7 +8,7 @@ const RootOperator = () => {
     const [modalShow, setModalShow] = useState(false);
     const handleClick = (index) => {
         setModalShow(true)
-        actions.editContainer(index)
+        actions.editOperator(index)
     };
     const [show, setShow] = useState(false);
 
